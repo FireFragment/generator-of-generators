@@ -2,8 +2,9 @@ TEMPLATE = app
 
 QT += widgets
 
-FORMS += mainwindow.ui
-SOURCES += main.cpp
+FORMS += $$files(*.ui, true)
+SOURCES += $$files(*.cpp, true)
+HEADERS += $$files(*.h, true)
 
 MOC_DIR = build
 OBJECTS_DIR = build
