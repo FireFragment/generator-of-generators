@@ -1,0 +1,14 @@
+name: Build
+on: [push]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Init QMake
+      run: qmake .
+    - name: Build 
+      run: make
