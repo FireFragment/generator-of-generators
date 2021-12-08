@@ -1,12 +1,30 @@
 name: Build
 on: [push]
 jobs:
-  build:
+  build-linux-macos:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest]
     steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        modules: 'qtwidgets'
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Init QMake
+      run: qmake . -spec win32-g++
+    - name: Build 
+      run: make
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: latest
+        platform: x64
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
