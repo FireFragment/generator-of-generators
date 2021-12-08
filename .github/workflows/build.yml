@@ -1,8 +1,11 @@
 name: Build
 on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-linux:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
