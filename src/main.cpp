@@ -12,5 +12,5 @@ int main(int argc, char** argv)
     main.setupUi(&w);
     w.show();
 
-    return app.exec();
+    return app.exec();haha compiler go brrrrr
 }
