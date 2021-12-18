@@ -2,8 +2,10 @@
 #define SUBGENEDIT_H
 
 #include "ui_subgenedit.h"
+#include "genlineedit.h"
 
 #include <QWidget>
+#include <QLineEdit>
 #include <QScopedPointer>
 
 /**
@@ -20,7 +22,6 @@ public:
      */
     SubgenEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
-    
 public slots:
     void addOption();
 private:

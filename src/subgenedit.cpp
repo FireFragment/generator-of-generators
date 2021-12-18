@@ -10,6 +10,6 @@ SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
 
 void SubgenEdit::addOption()
 {
-    QLineEdit* le = new QLineEdit();
+    GenLineEdit* le = new GenLineEdit();
     m_ui->options->addWidget(le);
 }
