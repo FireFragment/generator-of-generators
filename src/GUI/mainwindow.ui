@@ -14,7 +14,7 @@
   <customwidget>
    <class>GeneratorEdit</class>
    <extends>QWidget</extends>
-   <header>src/generatoredit.h</header>
+   <header>src/GUI/generatoredit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -88,7 +88,7 @@
   <customwidget>
    <class>GenLineEdit</class>
    <extends>QWidget</extends>
-   <header>src/genlineedit.h</header>
+   <header>src/GUI/genlineedit.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

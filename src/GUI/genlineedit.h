@@ -26,7 +26,7 @@ public:
      * @param f TODO
      */
     GenLineEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-
+    
 private:
     QScopedPointer<Ui::GenLineEdit> m_ui;
 };
