@@ -11,6 +11,7 @@ jobs:
       uses: jurplel/install-qt-action@v2
       with:
         modules: 'qtwidgets'
+        arch: 'win64_mingw81'
     - name: Check out the code
       uses: actions/checkout@v2
     - name: Init QMake
