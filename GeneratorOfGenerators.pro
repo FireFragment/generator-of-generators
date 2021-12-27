@@ -1,7 +1,6 @@
 TEMPLATE = app
 
 QT += widgets
-QT += designer
 
 FORMS += $$files(*.ui, true)
 SOURCES += $$files(*.cpp, true)

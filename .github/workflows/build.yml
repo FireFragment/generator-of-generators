@@ -1,0 +1,20 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        modules: 'qtwidgets'
+        arch: 'win64_mingw81'
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Init QMake
+      run: qmake .
+    - name: Build 
+      run: make
