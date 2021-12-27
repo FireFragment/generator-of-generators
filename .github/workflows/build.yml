@@ -16,17 +16,4 @@ jobs:
     - name: Init QMake
       run: qmake .
     - name: Build 
-      run: make
-  build-windows:
-    runs-on: windows-latest
-    steps:
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2
-      with:
-        modules: 'qtwidgets'
-    - name: Check out the code
-      uses: actions/checkout@v2
-    - name: Init QMake
-      run: qmake . -spec win32-g++
-    - name: Build 
-      run: make
+      run: mingw64-make.exe
