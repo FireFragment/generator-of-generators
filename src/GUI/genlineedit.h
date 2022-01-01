@@ -3,6 +3,7 @@
 
 #include "ui_genlineedit.h"
 
+#include <QDebug>
 #include <QWidget>
 #include <QScopedPointer>
 
@@ -27,8 +28,16 @@ public:
      */
     GenLineEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     
+public slots:
+    
+    void addItem();
 private:
     QScopedPointer<Ui::GenLineEdit> m_ui;
+    
+    /** 
+     * @return const QPushButton Button for adding new items to the line
+     */
+    QPushButton* getAddButton();
 };
 
 #endif // GENLINEEDIT_H
