@@ -45,8 +45,6 @@ private:
     
     /** 
      * @return const QPushButton Button for adding new items to the line
-     * 
-     * @param index The position of the button. Used to properly connect with `addItem` slot.
      */
     QPushButton* getAddButton();
     
