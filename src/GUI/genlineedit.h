@@ -3,11 +3,13 @@
 
 #include "ui_genlineedit.h"
 
+#include <QLineEdit>
 #include <QPushButton>
 #include <QSignalMapper>
 #include <QDebug>
 #include <QWidget>
 #include <QScopedPointer>
+#include <QDateTime>
 
 namespace Ui
 {
@@ -30,16 +32,15 @@ public:
      */
     GenLineEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     
+    
 public slots:
     
     /**
      * @brief Add a new item to the line
-     * 
-     * @param index Index of the new item, not yet implemented.
-     *              TODO: Make it actually do something
      */
-    void addItem(int index);
+    void addItem();
 private:
+    
     QScopedPointer<Ui::GenLineEdit> m_ui;
     
     /** 
@@ -47,7 +48,7 @@ private:
      * 
      * @param index The position of the button. Used to properly connect with `addItem` slot.
      */
-    QPushButton* getAddButton(unsigned int index);
+    QPushButton* getAddButton();
     
     QSignalMapper* signalMapper;
 };

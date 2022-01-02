@@ -6,28 +6,30 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
     m_ui(new Ui::GenLineEdit)
 {
     m_ui->setupUi(this);
-    
-    m_ui->content->insertWidget(2, getAddButton(1));
+
+    m_ui->content->insertWidget(0, getAddButton());
+    m_ui->content->insertWidget(2, getAddButton());
 }
 
 
 
-QPushButton* GenLineEdit::getAddButton(unsigned int index)
+QPushButton* GenLineEdit::getAddButton()
 {
     QPushButton* retVal = new QPushButton("+");
     retVal->setFlat(true);
-    
-    signalMapper = new QSignalMapper(this);
-    connect(retVal, SIGNAL(clicked()), signalMapper, SLOT(map()));
-    signalMapper->setMapping(retVal, index);
-    connect(signalMapper, SIGNAL(mapped(int)), this, SLOT(addItem(int)));
-    
-    
+
+    // Connect to `addItem`
+    connect(retVal, SIGNAL(clicked()), this, SLOT(addItem()));
+
     return retVal;
 }
 
-void GenLineEdit::addItem(int index)
+void GenLineEdit::addItem()
 {
-    // TODO: Implement
-    qDebug() << "Added | index =" << index;
+    QPushButton* clickedButton = dynamic_cast<QPushButton*>(sender());
+
+ // QLineEdit* line = new QLineEdit(QTime::currentTime().toString()); // Good for debugging - you can see, which QLineEdits are new
+    QLineEdit* line = new QLineEdit();
+    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), getAddButton());
+    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), line);
 }
