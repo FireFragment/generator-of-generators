@@ -24,12 +24,20 @@ QPushButton* GenLineEdit::getAddButton()
     return retVal;
 }
 
+QLineEdit* GenLineEdit::getLineEditItem() {
+    QLineEdit* retVal = new QLineEdit();
+    retVal->setClearButtonEnabled(true);
+    return retVal;
+}
+
 void GenLineEdit::addItem()
 {
     QPushButton* clickedButton = dynamic_cast<QPushButton*>(sender());
 
  // QLineEdit* line = new QLineEdit(QTime::currentTime().toString()); // Good for debugging - you can see, which QLineEdits are new
-    QLineEdit* line = new QLineEdit();
+    QLineEdit* line = getLineEditItem();
     m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), getAddButton());
     m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), line);
+    line->setFocus();
 }
+

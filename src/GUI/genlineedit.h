@@ -47,8 +47,7 @@ private:
      * @return const QPushButton Button for adding new items to the line
      */
     QPushButton* getAddButton();
-    
-    QSignalMapper* signalMapper;
+    QLineEdit* getLineEditItem();
 };
 
 #endif // GENLINEEDIT_H
