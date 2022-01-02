@@ -16,7 +16,6 @@ QPushButton* GenLineEdit::getAddButton(unsigned int index)
 {
     QPushButton* retVal = new QPushButton("+");
     retVal->setFlat(true);
-    //QObject::connect(retVal, SIGNAL(clicked()), this, SLOT(addItem(int)));
     
     signalMapper = new QSignalMapper(this);
     connect(retVal, SIGNAL(clicked()), signalMapper, SLOT(map()));
