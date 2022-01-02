@@ -13,7 +13,7 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
 
 
 
-QPushButton* GenLineEdit::getAddButton()
+QPushButton* GenLineEdit::getAddButton() const 
 {
     QPushButton* retVal = new QPushButton("+");
     retVal->setFlat(true);
@@ -22,9 +22,10 @@ QPushButton* GenLineEdit::getAddButton()
     connect(retVal, SIGNAL(clicked()), this, SLOT(addItem()));
 
     return retVal;
-}
+} 
 
-QLineEdit* GenLineEdit::getLineEditItem() {
+QLineEdit* GenLineEdit::getLineEditItem() const
+{
     QLineEdit* retVal = new QLineEdit();
     retVal->setClearButtonEnabled(true);
     return retVal;

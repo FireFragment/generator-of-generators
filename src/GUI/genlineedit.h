@@ -46,8 +46,8 @@ private:
     /** 
      * @return const QPushButton Button for adding new items to the line
      */
-    QPushButton* getAddButton();
-    QLineEdit* getLineEditItem();
+    QPushButton* getAddButton() const ;
+    QLineEdit* getLineEditItem() const;
 };
 
 #endif // GENLINEEDIT_H
