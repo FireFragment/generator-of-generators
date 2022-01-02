@@ -3,6 +3,7 @@
 
 #include "ui_genlineedit.h"
 
+#include <QSignalMapper>
 #include <QDebug>
 #include <QWidget>
 #include <QScopedPointer>
@@ -30,14 +31,24 @@ public:
     
 public slots:
     
-    void addItem();
+    /**
+     * @brief Add a new item to the line
+     * 
+     * @param index Index of the new item, not yet implemented.
+     *              TODO: Make it actually do something
+     */
+    void addItem(int index);
 private:
     QScopedPointer<Ui::GenLineEdit> m_ui;
     
     /** 
      * @return const QPushButton Button for adding new items to the line
+     * 
+     * @param index The position of the button. Used to properly connect with `addItem` slot.
      */
-    QPushButton* getAddButton();
+    QPushButton* getAddButton(unsigned int index);
+    
+    QSignalMapper* signalMapper;
 };
 
 #endif // GENLINEEDIT_H

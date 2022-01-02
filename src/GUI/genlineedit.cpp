@@ -7,21 +7,28 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
 {
     m_ui->setupUi(this);
     
-    m_ui->content->addWidget(getAddButton());
+    m_ui->content->insertWidget(2, getAddButton(1));
 }
 
 
 
-QPushButton* GenLineEdit::getAddButton()
+QPushButton* GenLineEdit::getAddButton(unsigned int index)
 {
     QPushButton* retVal = new QPushButton("+");
     retVal->setFlat(true);
-    QObject::connect(retVal, SIGNAL(clicked()), this, SLOT(addItem()));
+    //QObject::connect(retVal, SIGNAL(clicked()), this, SLOT(addItem(int)));
+    
+    signalMapper = new QSignalMapper(this);
+    connect(retVal, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    signalMapper->setMapping(retVal, index);
+    connect(signalMapper, SIGNAL(mapped(int)), this, SLOT(addItem(int)));
+    
+    
     return retVal;
 }
 
-void GenLineEdit::addItem()
+void GenLineEdit::addItem(int index)
 {
     // TODO: Implement
-    qDebug() << "Added";
+    qDebug() << "Added | index =" << index;
 }
