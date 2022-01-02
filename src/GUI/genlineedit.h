@@ -39,6 +39,11 @@ public slots:
      * @brief Add a new item to the line
      */
     void addItem();
+    
+    /**
+     * @brief Call, when lineEdit was edited. If it's empty, deletes it.
+     */
+    void lineEditEdited();
 private:
     
     QScopedPointer<Ui::GenLineEdit> m_ui;

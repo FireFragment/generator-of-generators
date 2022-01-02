@@ -28,8 +28,19 @@ QLineEdit* GenLineEdit::getLineEditItem() const
 {
     QLineEdit* retVal = new QLineEdit();
     retVal->setClearButtonEnabled(true);
+    // TODO: Fire also on clear button press
+    connect(retVal, SIGNAL(editingFinished()), this, SLOT(lineEditEdited()));
     return retVal;
 }
+
+void GenLineEdit::lineEditEdited()
+{
+    QLineEdit* lineEdit = dynamic_cast<QLineEdit*>(sender());
+    if(lineEdit->text() == "")
+        // TODO: Hide `lineEdit` properly and with plus button
+        lineEdit->hide();
+}
+
 
 void GenLineEdit::addItem()
 {
