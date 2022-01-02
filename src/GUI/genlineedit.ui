@@ -26,33 +26,11 @@
    <item>
     <layout class="QHBoxLayout" name="content">
      <item>
-      <widget class="QPushButton" name="pushButton_8">
-       <property name="icon">
-        <iconset theme="list-add">
-         <normaloff>.</normaloff>.</iconset>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QLineEdit" name="lineEdit">
        <property name="text">
         <string/>
        </property>
        <property name="clearButtonEnabled">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="icon">
-        <iconset theme="list-add">
-         <normaloff>.</normaloff>.</iconset>
-       </property>
-       <property name="flat">
         <bool>true</bool>
        </property>
       </widget>

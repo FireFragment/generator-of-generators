@@ -3,6 +3,7 @@
 
 #include "ui_genlineedit.h"
 
+#include <QPushButton>
 #include <QSignalMapper>
 #include <QDebug>
 #include <QWidget>
