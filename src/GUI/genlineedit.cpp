@@ -28,7 +28,7 @@ QLineEdit* GenLineEdit::getLineEditItem() const
 {
     QLineEdit* retVal = new QLineEdit();
     
-    // ----- Delete action ------------
+    // -------- Delete action ---------
     
     QAction *deleteAction = new QAction();
     deleteAction->setIcon(QIcon::fromTheme("delete"));
