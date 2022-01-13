@@ -10,6 +10,7 @@
 #include <QWidget>
 #include <QScopedPointer>
 #include <QDateTime>
+#include <QAction>
 
 namespace Ui
 {
@@ -41,9 +42,11 @@ public slots:
     void addItem();
     
     /**
-     * @brief Call, when lineEdit was edited. If it's empty, deletes it.
+     * @brief Delete an item
+     * 
+     * @param item Item to delete
      */
-    void lineEditEdited();
+    void deleteItem(QWidget* item);
 private:
     
     QScopedPointer<Ui::GenLineEdit> m_ui;

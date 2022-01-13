@@ -27,18 +27,23 @@ QPushButton* GenLineEdit::getAddButton() const
 QLineEdit* GenLineEdit::getLineEditItem() const
 {
     QLineEdit* retVal = new QLineEdit();
-    retVal->setClearButtonEnabled(true);
-    // TODO: Fire also on clear button press
-    connect(retVal, SIGNAL(editingFinished()), this, SLOT(lineEditEdited()));
+    
+    // ----- Delete action ------------
+    
+    QAction *deleteAction = new QAction();
+    deleteAction->setIcon(QIcon::fromTheme("delete"));
+    
+    QSignalMapper* mapper = new QSignalMapper();
+    mapper->setMapping(deleteAction, retVal);
+        connect(deleteAction, SIGNAL(triggered()), mapper, SLOT(map()));
+    connect(mapper, &QSignalMapper::mappedWidget,
+        this, &GenLineEdit::deleteItem);
+        
+    retVal->addAction(deleteAction, QLineEdit::TrailingPosition);
+    
+    // ----- End of delete action -----
+    
     return retVal;
-}
-
-void GenLineEdit::lineEditEdited()
-{
-    QLineEdit* lineEdit = dynamic_cast<QLineEdit*>(sender());
-    if(lineEdit->text() == "")
-        // TODO: Hide `lineEdit` properly and with plus button
-        lineEdit->hide();
 }
 
 
@@ -51,5 +56,11 @@ void GenLineEdit::addItem()
     m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), getAddButton());
     m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), line);
     line->setFocus();
+}
+
+void GenLineEdit::deleteItem(QWidget* item)
+{
+    // TODO: Implement
+    qDebug() << "Deleted";
 }
 
