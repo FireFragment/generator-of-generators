@@ -24,18 +24,7 @@
     <number>0</number>
    </property>
    <item>
-    <layout class="QHBoxLayout" name="content">
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="clearButtonEnabled">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="content"/>
    </item>
    <item>
     <widget class="Line" name="line">

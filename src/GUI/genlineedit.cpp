@@ -7,8 +7,10 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
 {
     m_ui->setupUi(this);
 
-    m_ui->content->insertWidget(0, getAddButton());
-    m_ui->content->insertWidget(2, getAddButton());
+    // Fill with inital contents
+    m_ui->content->addWidget(getAddButton());
+    m_ui->content->addWidget(getLineEditItem());
+    m_ui->content->addWidget(getAddButton());
 }
 
 
