@@ -33,12 +33,16 @@ QLineEdit* GenLineEdit::getLineEditItem() const
     QAction *deleteAction = new QAction();
     deleteAction->setIcon(QIcon::fromTheme("delete"));
     
+    // Map signals - `triggered()` -> `deleteItem(QWidget*)`
     QSignalMapper* mapper = new QSignalMapper();
     mapper->setMapping(deleteAction, retVal);
-        connect(deleteAction, SIGNAL(triggered()), mapper, SLOT(map()));
+    connect(deleteAction, SIGNAL(triggered()), mapper, SLOT(map()));
+    
+    // Connect the action to `deleteItem`
     connect(mapper, &QSignalMapper::mappedWidget,
         this, &GenLineEdit::deleteItem);
-        
+    
+    // Show the delete button
     retVal->addAction(deleteAction, QLineEdit::TrailingPosition);
     
     // ----- End of delete action -----
@@ -60,7 +64,15 @@ void GenLineEdit::addItem()
 
 void GenLineEdit::deleteItem(QWidget* item)
 {
-    // TODO: Implement
-    qDebug() << "Deleted";
+    // Remove the plus button before the item
+    QLayoutItem* preceedingButton = m_ui->content->itemAt(m_ui->content->indexOf(item) - 1); // The plus button before the item 
+    m_ui->content->removeItem(preceedingButton);
+    // FIXME: This doesn't seem like correct way to do this
+    delete preceedingButton->widget();
+    delete preceedingButton;
+    
+    // Remove the item
+    m_ui->content->removeWidget(item);
+    delete item;
 }
 
