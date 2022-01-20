@@ -24,6 +24,9 @@ public:
 
 public slots:
     void addOption();
+    /**
+     * @brief Remove the caller from options
+     */
     void removeOpt();
 private:
     QScopedPointer<Ui::SubgenEdit> m_ui;
