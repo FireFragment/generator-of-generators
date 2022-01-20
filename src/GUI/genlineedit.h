@@ -47,6 +47,16 @@ public slots:
      * @param item Item to delete
      */
     void deleteItem(QWidget* item);
+    
+signals:
+    /**
+     * @brief Fired when the line should be deleted
+     * 
+     * **Possible causes:**
+     *  - User deleted all items
+     *  - PLANNED: User clicked the delete button
+     */
+    void deleted();
 private:
     
     QScopedPointer<Ui::GenLineEdit> m_ui;

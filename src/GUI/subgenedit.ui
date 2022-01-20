@@ -69,11 +69,7 @@
     </spacer>
    </item>
    <item row="1" column="0" colspan="2">
-    <layout class="QVBoxLayout" name="options">
-     <item>
-      <widget class="GenLineEdit" name="widget" native="true"/>
-     </item>
-    </layout>
+    <layout class="QVBoxLayout" name="options"/>
    </item>
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label">
@@ -84,14 +80,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>GenLineEdit</class>
-   <extends>QWidget</extends>
-   <header>src/GUI/genlineedit.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>

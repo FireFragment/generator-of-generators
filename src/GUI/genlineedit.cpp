@@ -76,5 +76,8 @@ void GenLineEdit::deleteItem(QWidget* item)
     // Remove the item
     m_ui->content->removeWidget(item);
     delete item;
+    
+    // If there are not any items anymore, let it remove itself
+    if (m_ui->content->count() <= 1) deleted();
 }
 
