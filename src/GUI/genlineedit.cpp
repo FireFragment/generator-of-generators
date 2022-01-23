@@ -1,3 +1,4 @@
+#include <QMenu>
 #include "genlineedit.h"
 #include "ui_genlineedit.h"
 
@@ -17,12 +18,44 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
 
 QPushButton* GenLineEdit::getAddButton() const 
 {
-    QPushButton* retVal = new QPushButton("+");
+    QPushButton* retVal = new QPushButton();
+    retVal->setIcon(QIcon::fromTheme("list-add"));
     retVal->setFlat(true);
 
     // Connect to `addItem`
     connect(retVal, SIGNAL(clicked()), this, SLOT(addItem()));
-
+    
+    QMenu* menu = new QMenu();
+    
+    // ======= CONTEXT MENU ========
+    
+    // ----- Custom text -----
+    QAction* customTextAction = new QAction(QIcon::fromTheme("edit-entry"), tr("Custom text"));
+    menu->addAction(customTextAction);
+    
+    // Create signal mapper - `triggered()` -> `addItem(retVal)`
+    QSignalMapper* customTextMapper = new QSignalMapper();
+    customTextMapper->setMapping(customTextAction, retVal);
+    connect(customTextAction, SIGNAL(triggered()), customTextMapper, SLOT(map()));
+    
+    connect(customTextMapper, &QSignalMapper::mappedWidget, this, &GenLineEdit::addTextItem);
+    
+    // ----- Subgenerator -----  
+    QAction* subgenAction = new QAction(QIcon::fromTheme("view-list-tree"), tr("Subgenerator"));
+    menu->addAction(subgenAction);
+    
+    // Create signal mapper - `triggered()` -> `addItem(retVal)`
+    QSignalMapper* subgenMapper = new QSignalMapper();
+    subgenMapper->setMapping(subgenAction, retVal);
+    connect(subgenAction, SIGNAL(triggered()), subgenMapper, SLOT(map()));
+    
+    connect(subgenMapper, &QSignalMapper::mappedWidget, this, &GenLineEdit::addSubgenItem);
+    
+    // ===== END OF CONTEXT MENU =====
+    
+    retVal->setMenu(menu);   
+    retVal->setStyleSheet("::menu-indicator{ image: none; }"); // Hide the arrow
+        
     return retVal;
 } 
 
@@ -52,16 +85,44 @@ QLineEdit* GenLineEdit::getLineEditItem() const
     return retVal;
 }
 
-
-void GenLineEdit::addItem()
+SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
 {
-    QPushButton* clickedButton = dynamic_cast<QPushButton*>(sender());
+    SubgenInstEdit* retVal = new SubgenInstEdit;
+    
+    QSizePolicy::Policy horPol;
+    horPol = QSizePolicy::Maximum;
+    
+    QSizePolicy::Policy vertPol;
+    horPol = QSizePolicy::Maximum;
+    
+    retVal->setSizePolicy(horPol, vertPol);
+    
+    return retVal;
+}
+
+void GenLineEdit::addTextItem(QWidget* clickedButton)
+{
+    addItem(clickedButton, ItemType::CustomText);
+}
+
+void GenLineEdit::addSubgenItem(QWidget* clickedButton)
+{
+    addItem(clickedButton, ItemType::Subgen);
+}
+
+void GenLineEdit::addItem(QWidget* clickedButton, ItemType type)
+{
 
  // QLineEdit* line = new QLineEdit(QTime::currentTime().toString()); // Good for debugging - you can see, which QLineEdits are new
-    QLineEdit* line = getLineEditItem();
+    QWidget* item;
+    if (type == ItemType::CustomText) {
+        item = getLineEditItem();
+    } else {
+        item = getSubgenInstItem();
+    }
     m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), getAddButton());
-    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), line);
-    line->setFocus();
+    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), item);
+    item->setFocus();
 }
 
 void GenLineEdit::deleteItem(QWidget* item)

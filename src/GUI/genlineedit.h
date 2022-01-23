@@ -1,6 +1,8 @@
 #ifndef GENLINEEDIT_H
 #define GENLINEEDIT_H
 
+#include "subgeninstedit.h"
+
 #include "ui_genlineedit.h"
 
 #include <QLineEdit>
@@ -11,6 +13,11 @@
 #include <QScopedPointer>
 #include <QDateTime>
 #include <QAction>
+
+// TODO: Move to core
+enum class ItemType {
+    CustomText, Subgen
+};
 
 namespace Ui
 {
@@ -39,7 +46,9 @@ public slots:
     /**
      * @brief Add a new item to the line
      */
-    void addItem();
+    void addItem(QWidget* clickedButton, ItemType type);
+    void addTextItem(QWidget* clickedButton);
+    void addSubgenItem(QWidget* clickedButton);
     
     /**
      * @brief Delete an item
@@ -66,6 +75,7 @@ private:
      */
     QPushButton* getAddButton() const ;
     QLineEdit* getLineEditItem() const;
+    SubgenInstEdit* getSubgenInstItem() const;
 };
 
 #endif // GENLINEEDIT_H
