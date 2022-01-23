@@ -88,12 +88,12 @@ QLineEdit* GenLineEdit::getLineEditItem() const
 SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
-    
+
     QSizePolicy::Policy horPol;
     horPol = QSizePolicy::Maximum;
     
     QSizePolicy::Policy vertPol;
-    horPol = QSizePolicy::Maximum;
+    vertPol = QSizePolicy::Maximum;
     
     retVal->setSizePolicy(horPol, vertPol);
     
