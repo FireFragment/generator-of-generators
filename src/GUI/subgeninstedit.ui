@@ -92,5 +92,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SubgenInstEdit</receiver>
+   <slot>deletePressed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

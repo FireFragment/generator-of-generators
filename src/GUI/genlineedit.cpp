@@ -21,9 +21,6 @@ QPushButton* GenLineEdit::getAddButton() const
     QPushButton* retVal = new QPushButton();
     retVal->setIcon(QIcon::fromTheme("list-add"));
     retVal->setFlat(true);
-
-    // Connect to `addItem`
-    connect(retVal, SIGNAL(clicked()), this, SLOT(addItem()));
     
     QMenu* menu = new QMenu();
     
@@ -89,6 +86,8 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
 
+    // -------- Size policy ---------
+    
     QSizePolicy::Policy horPol;
     horPol = QSizePolicy::Maximum;
     
@@ -96,6 +95,17 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
     vertPol = QSizePolicy::Maximum;
     
     retVal->setSizePolicy(horPol, vertPol);
+    
+    // ----- Deleting -----
+    
+    // Map signals - `deleted()` -> `deleteItem(QWidget*)`
+    QSignalMapper* mapper = new QSignalMapper();
+    mapper->setMapping(retVal, retVal);
+    connect(retVal, SIGNAL(deleted()), mapper, SLOT(map()));
+    
+    // Connect the action to `deleteItem`
+    connect(mapper, &QSignalMapper::mappedWidget,
+        this, &GenLineEdit::deleteItem);
     
     return retVal;
 }

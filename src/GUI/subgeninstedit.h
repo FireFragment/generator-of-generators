@@ -18,6 +18,18 @@ public:
      * Default constructor
      */
     SubgenInstEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    
+public slots:
+    void deletePressed() {
+        deleted();
+    };
+    
+signals:
+    /**
+     * @brief Fired when the line should be deleted
+     * Caused by clicking the thrash button
+     */
+    void deleted();
 
 private:
     QScopedPointer<Ui::SubgenInstEdit> m_ui;
