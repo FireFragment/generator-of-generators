@@ -1,4 +1,5 @@
 #include "generatoredit.h"
+#include <QInputDialog>
 
 GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     QWidget::QWidget(parent, f),
@@ -10,7 +11,11 @@ GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
 void GeneratorEdit::addSubgen()
 {
     SubgenEdit* subg = new SubgenEdit();
-    //SubgenEdit* subg = new SubgenEdit();
-    m_ui->subgeneratorsView->addTab(subg, "Subgenerator");
-    // TODO: Let user choose the name of the subgenerator.
+    
+    bool ok; // User clicked the OK button
+    QString name = QInputDialog::getText(this, tr("New subgenerator"),
+                                         tr("Subgenerator name:"), QLineEdit::Normal,
+                                         "", &ok);
+    if (ok && !name.isEmpty())
+        m_ui->subgeneratorsView->addTab(subg, name);
 }
