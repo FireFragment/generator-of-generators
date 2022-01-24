@@ -1,5 +1,6 @@
 #include "generatoredit.h"
 #include <QInputDialog>
+#include <QMessageBox>
 
 GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     QWidget::QWidget(parent, f),
@@ -10,15 +11,28 @@ GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
 
 void GeneratorEdit::addSubgen()
 {
-    SubgenEdit* subg = new SubgenEdit();
-    
     bool ok; // User clicked the OK button
     
     // Ask user for the name
     // FIXME: The window has a small size
     QString name = QInputDialog::getText(this, tr("New subgenerator"),
-                                         tr("Subgenerator name:"), QLineEdit::Normal,
+                                         tr("The new generator will generate:"), QLineEdit::Normal,
                                          "", &ok);
-    if (ok && !name.isEmpty())
+    
+    // When user didn't enter any name, warn him.
+    if (name.isEmpty()) {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("No name entered");
+        msgBox.setText("Subgenerator without name isn't possible.");
+        msgBox.setIcon(QMessageBox::Critical);
+        msgBox.exec();
+        
+        return;
+    }
+    
+    // Create the subgenerator
+    if (ok) {
+        SubgenEdit* subg = new SubgenEdit();
         m_ui->subgeneratorsView->addTab(subg, name);
+    }
 }
