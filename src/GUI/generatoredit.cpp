@@ -13,6 +13,9 @@ void GeneratorEdit::addSubgen()
     SubgenEdit* subg = new SubgenEdit();
     
     bool ok; // User clicked the OK button
+    
+    // Ask user for the name
+    // FIXME: The window has a small size
     QString name = QInputDialog::getText(this, tr("New subgenerator"),
                                          tr("Subgenerator name:"), QLineEdit::Normal,
                                          "", &ok);
