@@ -2,8 +2,6 @@
 #include <QInputDialog>
 #include <QMessageBox>
 
-QStringList globals::subgensGlob;
-
 GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     QWidget::QWidget(parent, f),
     m_ui(new Ui::GeneratorEdit) 
@@ -31,8 +29,6 @@ void GeneratorEdit::addSubgen()
         
         return;
     }
-    
-    globals::subgensGlob += name;
     
     // Create the subgenerator
     if (ok) {
