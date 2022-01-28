@@ -7,6 +7,9 @@ GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     m_ui(new Ui::GeneratorEdit) 
 {
     m_ui->setupUi(this);
+    
+    // Make delete buttons working
+    connect(m_ui->subgeneratorsView->tabBar(), &QTabBar::tabCloseRequested, m_ui->subgeneratorsView->tabBar(), &QTabBar::removeTab);
 }
 
 void GeneratorEdit::addSubgen()
