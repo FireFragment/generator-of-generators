@@ -5,6 +5,8 @@ SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
     m_ui(new Ui::SubgenEdit)
 {
     m_ui->setupUi(this);
+    m_ui->instShowcase->setText(name);
+    m_ui->subgenHeader->hide();
     addOption();
 }
 
@@ -22,4 +24,12 @@ void SubgenEdit::removeOpt()
     wgt->hide();
     m_ui->options->removeWidget(wgt);
     delete wgt;
+}
+
+void SubgenEdit::setName(QString _name)
+{
+    name = _name;
+    m_ui->subgenHeader->setVisible(name != "");
+    m_ui->subgenNoHeader->setVisible(name == "");
+    m_ui->instShowcase->setText(name);
 }

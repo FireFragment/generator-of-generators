@@ -21,7 +21,15 @@ public:
      * Constructor
      */
     SubgenEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-
+    /**
+     * @brief Sets the name of the subgenerator and updates the UI accordingly
+     * The name will be used in UI.
+     * 
+     * If name is unset, there will be no rename option nor `Every [name] will be replaced` header
+     * 
+     * @param[in] _name Name to set
+     */
+    void setName(QString _name);
 public slots:
     void addOption();
     /**
@@ -30,6 +38,13 @@ public slots:
     void removeOpt();
 private:
     QScopedPointer<Ui::SubgenEdit> m_ui;
+    
+
+    /**
+     * @brief The name of the subgenerator
+     * 
+     */
+    QString name;
 };
 
 #endif // SUBGENEDIT_H
