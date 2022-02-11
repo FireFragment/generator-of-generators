@@ -2,6 +2,7 @@
 #define GOG_CORE_GENERATOR_H
 
 #include <QString>
+#include <QVector>
 #include "subgen.h"
 
 namespace GoG::Core {
