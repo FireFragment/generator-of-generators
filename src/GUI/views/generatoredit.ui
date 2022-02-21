@@ -80,7 +80,7 @@
   <customwidget>
    <class>SubgenEdit</class>
    <extends>QWidget</extends>
-   <header>GUI/subgenedit.h</header>
+   <header>GUI/views/subgenedit.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
