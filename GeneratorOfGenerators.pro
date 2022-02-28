@@ -1,5 +1,7 @@
 TEMPLATE = app
 
+CONFIG += c++17
+
 QT += widgets
 
 FORMS += $$files(*.ui, true)
