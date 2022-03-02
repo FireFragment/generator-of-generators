@@ -2,6 +2,11 @@
 #include <QInputDialog>
 #include <QMessageBox>
 
+#include "../models/generator.h"
+
+using namespace GoG::GUI;
+using namespace GoG;
+
 GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     QWidget::QWidget(parent, f),
     m_ui(new Ui::GeneratorEdit) 
@@ -38,4 +43,18 @@ void GeneratorEdit::addSubgen()
         SubgenEdit* subg = new SubgenEdit();
         m_ui->subgeneratorsView->addTab(subg, name);
     }
+}
+
+void GeneratorEdit::Update()
+{
+    m_ui->nameLbl->setText(model()->name);
+    qDebug() << "Update";
+}
+
+void GeneratorEdit::setModel(GoG::GUI::Model::Generator* model)
+{
+    m_model = model;
+    connect(m_model, &GUI::Model::Generator::Update, this, &GeneratorEdit::Update);
+    Update();
+
 }

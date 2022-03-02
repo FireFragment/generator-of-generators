@@ -15,6 +15,20 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>My name is:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="nameLbl">
+     <property name="text">
+      <string>No name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLabel" name="mainGeneratorLabel">
      <property name="font">
       <font>

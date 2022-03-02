@@ -2,12 +2,16 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="GeneratorEdit" name="widget" native="true"/>
-    </item>
-   </layout>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>16</width>
+    <height>16</height>
+   </rect>
+  </property>
+  <widget class="GeneratorEdit" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
  </widget>
  <customwidgets>
