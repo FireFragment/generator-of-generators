@@ -33,6 +33,7 @@ public slots:
      *
      */
     void Update();
+    void tabClosed(int index);
 private:
     QScopedPointer<Ui::GeneratorEdit> m_ui;
     GoG::GUI::Model::Generator* m_model;

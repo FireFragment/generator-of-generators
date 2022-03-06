@@ -14,7 +14,7 @@ GeneratorEdit::GeneratorEdit(QWidget* parent, Qt::WindowFlags f) :
     m_ui->setupUi(this);
     
     // Make delete buttons working
-    connect(m_ui->subgeneratorsView->tabBar(), &QTabBar::tabCloseRequested, m_ui->subgeneratorsView->tabBar(), &QTabBar::removeTab);
+    connect(m_ui->subgeneratorsView->tabBar(), &QTabBar::tabCloseRequested, this, &GeneratorEdit::tabClosed);
 }
 
 void GeneratorEdit::addSubgen()
@@ -40,8 +40,8 @@ void GeneratorEdit::addSubgen()
     
     // Create the subgenerator
     if (ok) {
-        SubgenEdit* subg = new SubgenEdit();
-        m_ui->subgeneratorsView->addTab(subg, name);
+        m_model->subgenerators.push_back(Model::Subgenerator(name));
+        m_model->Update();
     }
 }
 
@@ -63,4 +63,11 @@ void GeneratorEdit::setModel(GoG::GUI::Model::Generator* model)
     connect(m_model, &GUI::Model::Generator::Update, this, &GeneratorEdit::Update);
     Update();
 
+}
+
+void GeneratorEdit::tabClosed(int index)
+{
+    m_model->subgenerators.removeAt(index);
+    m_model->Update();
+    qDebug() << "Deleted subgenerator no. " << index;
 }
