@@ -17,6 +17,11 @@ int main(int argc, char** argv)
     main.centralWidget->setModel(&model);
 
     model.name = "Testing generator";
+
+    model.subgenerators.push_back(Model::Subgenerator("Subgenerator no. 1"));
+    model.Changed();
+    model.subgenerators.push_back(Model::Subgenerator("Subgenerator no. 2"));
+    model.subgenerators.push_back(Model::Subgenerator("Subgenerator no. 3"));
     model.Changed();
 
     w.show();

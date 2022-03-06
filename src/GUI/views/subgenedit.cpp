@@ -1,5 +1,7 @@
 #include "subgenedit.h"
 
+using namespace GoG::GUI;
+
 SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
     QWidget::QWidget(parent, f),
     m_ui(new Ui::SubgenEdit)
@@ -7,6 +9,7 @@ SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
     m_ui->setupUi(this);
     m_ui->instShowcase->setText(name);
     m_ui->subgenHeader->hide();
+
     addOption();
 }
 
@@ -33,3 +36,16 @@ void SubgenEdit::setName(QString _name)
     m_ui->subgenNoHeader->setVisible(name == "");
     m_ui->instShowcase->setText(name);
 }
+
+void SubgenEdit::setModel(GoG::GUI::Model::Subgenerator* model)
+{
+    m_model = model;
+    connect(m_model, &Model::Subgenerator::Update, this, &SubgenEdit::Update);
+    Update();
+}
+
+void SubgenEdit::Update()
+{
+    setName(m_model->name);
+}
+

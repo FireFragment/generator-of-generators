@@ -48,6 +48,12 @@ void GeneratorEdit::addSubgen()
 void GeneratorEdit::Update()
 {
     m_ui->nameLbl->setText(model()->name);
+    m_ui->subgeneratorsView->clear();
+    for (auto& i : m_model->subgenerators) {
+        SubgenEdit* subg = new SubgenEdit();
+        subg->setModel(&i);
+        m_ui->subgeneratorsView->addTab(subg, i.name);
+    }
     qDebug() << "Update";
 }
 

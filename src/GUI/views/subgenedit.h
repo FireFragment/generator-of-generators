@@ -3,6 +3,7 @@
 
 #include "ui_subgenedit.h"
 #include "genlineedit.h"
+#include "../models/subgenerator.h"
 
 #include <QWidget>
 #include <QLineEdit>
@@ -21,22 +22,28 @@ public:
      * Constructor
      */
     SubgenEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    /**
-     * @brief Sets the name of the subgenerator and updates the UI accordingly
-     * The name will be used in UI.
-     * 
-     * If name is unset, there will be no rename option nor `Every [name] will be replaced` header
-     * 
-     * @param[in] _name Name to set
-     */
-    void setName(QString _name);
+
+    void setModel(GoG::GUI::Model::Subgenerator* model);
+    GoG::GUI::Model::Subgenerator* model() { return m_model; };
 public slots:
     void addOption();
     /**
      * @brief Remove the caller from options
      */
     void removeOpt();
+    void Update();
 private:
+
+    /**
+     * @brief Sets the name of the subgenerator and updates the UI accordingly
+     * The name will be used in UI.
+     *
+     * If name is unset, there will be no rename option nor `Every [name] will be replaced` header
+     *
+     * @param[in] _name Name to set
+     */
+    void setName(QString _name);
+
     QScopedPointer<Ui::SubgenEdit> m_ui;
     
 
@@ -45,6 +52,8 @@ private:
      * 
      */
     QString name;
+
+    GoG::GUI::Model::Subgenerator* m_model;
 };
 
 #endif // SUBGENEDIT_H

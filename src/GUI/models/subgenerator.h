@@ -15,6 +15,8 @@ class Subgenerator : public Model::Parent
 {
 public:
     QString name;
+    Subgenerator(QString name) : name(name) {}
+    Subgenerator(const Subgenerator& original) : name(original.name) {};
 };
 
 }
