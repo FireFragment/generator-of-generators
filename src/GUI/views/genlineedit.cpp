@@ -19,8 +19,6 @@ GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
     m_ui->content->addWidget(getAddButton());
 }
 
-
-
 QPushButton* GenLineEdit::getAddButton() const 
 {
     QPushButton* retVal = new QPushButton();
@@ -139,8 +137,6 @@ void GenLineEdit::lineEditEdited(const QString& text)
     unsigned int itemIndex = (editedLineEditIndex - 1) / 2;
 
     m_model->items[itemIndex]->SetCustomText(text.toStdString());
-
-    qDebug() << "Added";
 }
 
 void GenLineEdit::addItem(QWidget* clickedButton, Model::GeneratorItem::Type type)
