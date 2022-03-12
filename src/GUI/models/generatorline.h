@@ -13,6 +13,10 @@ class GeneratorLine : public Model::Parent
 {
 public:
     PtrVector<Model::GeneratorItem> items;
+
+    GeneratorLine() {
+        items << new Model::GeneratorItem;
+    }
 };
 
 }

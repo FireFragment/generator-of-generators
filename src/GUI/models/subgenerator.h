@@ -17,7 +17,9 @@ class Subgenerator : public Model::Parent
 public:
     QString name;
     PtrVector<Model::GeneratorLine> options;
-    Subgenerator(QString name) : name(name) {}
+    Subgenerator(QString name) : name(name) {
+        options << new Model::GeneratorLine;
+    }
 };
 
 }

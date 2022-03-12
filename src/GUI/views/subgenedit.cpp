@@ -1,5 +1,7 @@
 #include "subgenedit.h"
+#include "clearlayout.h"
 
+using namespace GoG;
 using namespace GoG::GUI;
 
 SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
@@ -9,18 +11,12 @@ SubgenEdit::SubgenEdit(QWidget* parent, Qt::WindowFlags f):
     m_ui->setupUi(this);
     m_ui->instShowcase->setText(name);
     m_ui->subgenHeader->hide();
-
-    addOption();
 }
 
 void SubgenEdit::addOption()
 {
-    GenLineEdit* le = new GenLineEdit();
-    Model::GeneratorLine* line = new Model::GeneratorLine();
-    le->setModel(line);
-
-    connect(le, SIGNAL(deleted()), this, SLOT(removeOpt()));
-    m_ui->options->addWidget(le);
+    m_model->options.push_back(new Model::GeneratorLine);
+    m_model->Update();
 }
 
 void SubgenEdit::removeOpt()
@@ -50,6 +46,8 @@ void SubgenEdit::setModel(GoG::GUI::Model::Subgenerator* model)
 void SubgenEdit::Update()
 {
     setName(m_model->name);
+
+    ClearQLayout(m_ui->options);
 
     for (auto i : m_model->options) {
         GenLineEdit* le = new GenLineEdit();
