@@ -15,6 +15,8 @@ template<typename T>
 class PtrVector :  public QVector<T*>
 {
 public:
+    using QVector<T*>::QVector;
+
     /**
      * Copy constructor
      * Copies also all items
@@ -30,9 +32,10 @@ public:
      * Deletes all items
      */
     ~PtrVector() {
-        for (T* item : &this) {
-            delete item;
-        }
+        QVectorIterator<T*> it(*this);
+
+        while (it.hasNext())
+            delete it.next();
     };
 
 };
