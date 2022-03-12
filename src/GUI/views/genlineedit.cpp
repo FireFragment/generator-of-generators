@@ -1,8 +1,10 @@
 #include <QMenu>
 #include "genlineedit.h"
+#include "clearlayout.h"
 #include "../models/generatoritem.h"
 #include "ui_genlineedit.h"
 
+using namespace GoG;
 using namespace GoG::GUI;
 
 GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
@@ -166,18 +168,7 @@ void GenLineEdit::setModel(GoG::GUI::Model::GeneratorLine* model)
 
 void GenLineEdit::Update()
 {
-    // Clear the layout
-    QLayoutItem* child;
-    while ( m_ui->content->count() != 0 ) {
-        child = m_ui->content->takeAt ( 0 );
-        if ( child->layout() != 0 ) {
-            m_ui->content->removeItem( child->layout() );
-        } else if ( child->widget() != 0 ) {
-            delete child->widget();
-        }
-
-        delete child;
-    }
+    ClearQLayout(m_ui->content);
 
     m_ui->content->addWidget(getAddButton());
     for (auto i : m_model->items) {
