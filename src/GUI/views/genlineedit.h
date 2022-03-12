@@ -48,6 +48,15 @@ public slots:
     void addItem(QWidget* clickedButton, GoG::GUI::Model::GeneratorItem::Type type);
     void addTextItem(QWidget* clickedButton);
     void addSubgenItem(QWidget* clickedButton);
+
+    /**
+     * @brief Fired when any line edit in `GenLineEdit` has been edited.
+     *
+     * @warning You can't call this directly, you have to connect it to signal.
+     *          The caller has to be `QLineEdit`
+     *          Violating any of theese conditions may result in undefined behavior or crash.
+     */
+    void lineEditEdited(const QString& text);
     
     /**
      * @brief Delete an item

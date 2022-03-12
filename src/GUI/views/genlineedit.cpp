@@ -82,7 +82,8 @@ QLineEdit* GenLineEdit::getLineEditItem(QString text) const
     // Show the delete button
     retVal->addAction(deleteAction, QLineEdit::TrailingPosition);
 
-    // ----- End of delete action -----
+    // ----- Update model on change -----
+    connect(retVal, &QLineEdit::textEdited, this, &GenLineEdit::lineEditEdited);
 
     // Set text
     retVal->setText(text);
@@ -126,6 +127,20 @@ void GenLineEdit::addTextItem(QWidget* clickedButton)
 void GenLineEdit::addSubgenItem(QWidget* clickedButton)
 {
     addItem(clickedButton, Model::GeneratorItem::SubgenInst);
+}
+
+void GenLineEdit::lineEditEdited(const QString& text)
+{
+    QLineEdit* editedLineEdit = qobject_cast<QLineEdit*>(sender());
+
+    /** Index of `lineEdit`, that was edited */
+    unsigned int editedLineEditIndex = m_ui->content->indexOf(editedLineEdit);
+    /** Index of item, that was edited*/
+    unsigned int itemIndex = (editedLineEditIndex - 1) / 2;
+
+    m_model->items[itemIndex]->SetCustomText(text.toStdString());
+
+    qDebug() << "Added";
 }
 
 void GenLineEdit::addItem(QWidget* clickedButton, Model::GeneratorItem::Type type)
