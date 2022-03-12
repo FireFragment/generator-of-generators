@@ -1,17 +1,18 @@
 #ifndef MODEL_GENERATORLINE_H
 #define MODEL_GENERATORLINE_H
 
-#include <QVector>
 #include "generatoritem.h"
+#include "ptrvector.h"
 
 namespace GoG::GUI::Model {
 
 /**
  * @todo write docs
  */
-class GeneratorLine
+class GeneratorLine : public Model::Parent
 {
-    QVector<Model::GeneratorItem> items;
+public:
+    PtrVector<Model::GeneratorItem> items;
 };
 
 }

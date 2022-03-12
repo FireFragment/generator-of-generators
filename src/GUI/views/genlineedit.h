@@ -14,10 +14,7 @@
 #include <QDateTime>
 #include <QAction>
 
-// TODO: Move to core
-enum class ItemType {
-    CustomText, Subgen
-};
+#include "../models/generatorline.h"
 
 namespace Ui
 {
@@ -39,14 +36,16 @@ public:
      * @param f TODO
      */
     GenLineEdit(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    
+
+    void setModel(GoG::GUI::Model::GeneratorLine* model);
+    GoG::GUI::Model::GeneratorLine* model() { return m_model; };
     
 public slots:
     
     /**
      * @brief Add a new item to the line
      */
-    void addItem(QWidget* clickedButton, ItemType type);
+    void addItem(QWidget* clickedButton, GoG::GUI::Model::GeneratorItem::Type type);
     void addTextItem(QWidget* clickedButton);
     void addSubgenItem(QWidget* clickedButton);
     
@@ -56,7 +55,8 @@ public slots:
      * @param item Item to delete
      */
     void deleteItem(QWidget* item);
-    
+
+    void Update();
 signals:
     /**
      * @brief Fired when the line should be deleted
@@ -74,8 +74,10 @@ private:
      * @return const QPushButton Button for adding new items to the line
      */
     QPushButton* getAddButton() const ;
-    QLineEdit* getLineEditItem() const;
+    QLineEdit* getLineEditItem(QString text = "") const;
     SubgenInstEdit* getSubgenInstItem() const;
+
+    GoG::GUI::Model::GeneratorLine* m_model;
 };
 
 #endif // GENLINEEDIT_H

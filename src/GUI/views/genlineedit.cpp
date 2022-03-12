@@ -1,6 +1,9 @@
 #include <QMenu>
 #include "genlineedit.h"
+#include "../models/generatoritem.h"
 #include "ui_genlineedit.h"
+
+using namespace GoG::GUI;
 
 GenLineEdit::GenLineEdit(QWidget* parent, Qt::WindowFlags f):
     QWidget::QWidget(parent, f),
@@ -56,29 +59,32 @@ QPushButton* GenLineEdit::getAddButton() const
     return retVal;
 } 
 
-QLineEdit* GenLineEdit::getLineEditItem() const
+QLineEdit* GenLineEdit::getLineEditItem(QString text) const
 {
     QLineEdit* retVal = new QLineEdit();
-    
+
     // -------- Delete action ---------
-    
+
     QAction *deleteAction = new QAction();
     deleteAction->setIcon(QIcon::fromTheme("delete"));
-    
+
     // Map signals - `triggered()` -> `deleteItem(QWidget*)`
     QSignalMapper* mapper = new QSignalMapper();
     mapper->setMapping(deleteAction, retVal);
     connect(deleteAction, SIGNAL(triggered()), mapper, SLOT(map()));
-    
+
     // Connect the action to `deleteItem`
     connect(mapper, &QSignalMapper::mappedWidget,
         this, &GenLineEdit::deleteItem);
-    
+
     // Show the delete button
     retVal->addAction(deleteAction, QLineEdit::TrailingPosition);
-    
+
     // ----- End of delete action -----
-    
+
+    // Set text
+    retVal->setText(text);
+
     return retVal;
 }
 
@@ -112,27 +118,26 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
 
 void GenLineEdit::addTextItem(QWidget* clickedButton)
 {
-    addItem(clickedButton, ItemType::CustomText);
+    addItem(clickedButton, Model::GeneratorItem::CustomText);
 }
 
 void GenLineEdit::addSubgenItem(QWidget* clickedButton)
 {
-    addItem(clickedButton, ItemType::Subgen);
+    addItem(clickedButton, Model::GeneratorItem::SubgenInst);
 }
 
-void GenLineEdit::addItem(QWidget* clickedButton, ItemType type)
+void GenLineEdit::addItem(QWidget* clickedButton, Model::GeneratorItem::Type type)
 {
-
- // QLineEdit* line = new QLineEdit(QTime::currentTime().toString()); // Good for debugging - you can see, which QLineEdits are new
-    QWidget* item;
-    if (type == ItemType::CustomText) {
-        item = getLineEditItem();
-    } else {
-        item = getSubgenInstItem();
+    Model::GeneratorItem* item = new Model::GeneratorItem;
+    unsigned int index = m_ui->content->indexOf(clickedButton) / 2;
+    switch (type) {
+        case Model::GeneratorItem::CustomText: item->SetCustomText(""); break;
+        case Model::GeneratorItem::SubgenInst: item->SetSubgenInst(NULL); break;
     }
-    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), getAddButton());
-    m_ui->content->insertWidget(m_ui->content->indexOf(clickedButton), item);
-    item->setFocus();
+    m_model->items.insert(index, item);
+    m_model->Changed();
+
+    m_ui->content->itemAt(index * 2 + 1)->widget()->setFocus(); // Set focus to the new added item
 }
 
 void GenLineEdit::deleteItem(QWidget* item)
@@ -152,3 +157,38 @@ void GenLineEdit::deleteItem(QWidget* item)
     if (m_ui->content->count() <= 1) deleted();
 }
 
+void GenLineEdit::setModel(GoG::GUI::Model::GeneratorLine* model)
+{
+    m_model = model;
+    connect(m_model, &Model::GeneratorLine::Update, this, &GenLineEdit::Update);
+    Update();
+}
+
+void GenLineEdit::Update()
+{
+    // Clear the layout
+    QLayoutItem* child;
+    while ( m_ui->content->count() != 0 ) {
+        child = m_ui->content->takeAt ( 0 );
+        if ( child->layout() != 0 ) {
+            m_ui->content->removeItem( child->layout() );
+        } else if ( child->widget() != 0 ) {
+            delete child->widget();
+        }
+
+        delete child;
+    }
+
+    m_ui->content->addWidget(getAddButton());
+    for (auto i : m_model->items) {
+        QWidget* itemWgt;
+        switch (i->type()) {
+            case Model::GeneratorItem::CustomText:
+                itemWgt = getLineEditItem(QString::fromStdString(i->getCustomText()));
+                break;
+            case Model::GeneratorItem::SubgenInst: itemWgt = getSubgenInstItem(); break;
+        }
+        m_ui->content->addWidget(itemWgt);
+        m_ui->content->addWidget(getAddButton());
+    }
+}

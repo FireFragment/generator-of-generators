@@ -5,6 +5,7 @@
 #include <QObject>
 
 #include "parent.h"
+#include "generatorline.h"
 
 namespace GoG::GUI::Model {
 
@@ -15,8 +16,8 @@ class Subgenerator : public Model::Parent
 {
 public:
     QString name;
+    PtrVector<Model::GeneratorLine> options;
     Subgenerator(QString name) : name(name) {}
-    Subgenerator(const Subgenerator& original) : name(original.name) {};
 };
 
 }

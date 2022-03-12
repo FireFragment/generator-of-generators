@@ -5,6 +5,7 @@
 #include <QString>
 #include "parent.h"
 #include "subgenerator.h"
+#include "ptrvector.h"
 
 namespace GoG::GUI::Model {
 
@@ -17,7 +18,7 @@ class Generator : public Model::Parent
 
 public:
     QString name;
-    QVector<Model::Subgenerator> subgenerators;
+    PtrVector<Model::Subgenerator> subgenerators;
 
     Generator(QString name) : name(name) {};
 };

@@ -40,7 +40,7 @@ void GeneratorEdit::addSubgen()
     
     // Create the subgenerator
     if (ok) {
-        m_model->subgenerators.push_back(Model::Subgenerator(name));
+        m_model->subgenerators.push_back(new Model::Subgenerator(name));
         m_model->Update();
     }
 }
@@ -51,8 +51,8 @@ void GeneratorEdit::Update()
     m_ui->subgeneratorsView->clear();
     for (auto& i : m_model->subgenerators) {
         SubgenEdit* subg = new SubgenEdit();
-        subg->setModel(&i);
-        m_ui->subgeneratorsView->addTab(subg, i.name);
+        subg->setModel(i);
+        m_ui->subgeneratorsView->addTab(subg, i->name);
     }
     qDebug() << "Update";
 }

@@ -2,10 +2,11 @@
 #define GOG_MODEL_GENERATORITEM_H
 
 #include <variant>
-#include "subgenerator.h"
 #include "parent.h"
 
 namespace GoG::GUI::Model {
+
+class Subgenerator;
 
 /**
  * @todo write docs
@@ -47,6 +48,12 @@ public:
      * @return The pointer to the subgenerator this is instance of.
      */
     Subgenerator* getSbugenInst();
+
+    GeneratorItem(std::variant<std::string, Subgenerator*> value = "") : value(value) {};
+    GeneratorItem(std::string value) : value(value) {};
+    void SetCustomText(std::string _value) { value = _value; };
+    GeneratorItem(Subgenerator* value) : value(value) {};
+    void SetSubgenInst(Subgenerator* _value) { value = _value; };
 private:
     /**
      * @brief The own value of the Item
