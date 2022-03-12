@@ -159,19 +159,12 @@ void GenLineEdit::addItem(QWidget* clickedButton, Model::GeneratorItem::Type typ
 
 void GenLineEdit::deleteItem(QWidget* item)
 {
-    // Remove the plus button before the item
-    QLayoutItem* preceedingButton = m_ui->content->itemAt(m_ui->content->indexOf(item) - 1); // The plus button before the item 
-    m_ui->content->removeItem(preceedingButton);
-    // FIXME: This doesn't seem like correct way to do this
-    delete preceedingButton->widget();
-    delete preceedingButton;
+    m_model->items.removeAt((m_ui->content->indexOf(item) - 1) / 2);
     
-    // Remove the item
-    m_ui->content->removeWidget(item);
-    delete item;
-    
-    // If there are not any items anymore, let it remove itself
-    if (m_ui->content->count() <= 1) deleted();
+    // If there are no items anymore, let it remove itself
+    if (m_model->items.size() == 0) deleted();
+
+    m_model->Update();
 }
 
 void GenLineEdit::setModel(GoG::GUI::Model::GeneratorLine* model)
