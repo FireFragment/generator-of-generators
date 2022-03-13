@@ -54,7 +54,6 @@ void GeneratorEdit::Update()
         subg->setModel(i);
         m_ui->subgeneratorsView->addTab(subg, i->name);
     }
-    qDebug() << "Update";
 }
 
 void GeneratorEdit::setModel(GoG::GUI::Model::Generator* model)
