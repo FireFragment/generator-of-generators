@@ -40,6 +40,10 @@ public:
     void setModel(GoG::GUI::Model::GeneratorLine* model);
     GoG::GUI::Model::GeneratorLine* model() { return m_model; };
     
+    /**
+     * @brief Generator this is part of
+     */
+    GoG::GUI::Model::Generator* parent;
 public slots:
     
     /**
@@ -84,7 +88,7 @@ private:
      */
     QPushButton* getAddButton() const ;
     QLineEdit* getLineEditItem(QString text = "") const;
-    SubgenInstEdit* getSubgenInstItem() const;
+    SubgenInstEdit* getSubgenInstItem(GoG::GUI::Model::Generator* parent) const;
 
     GoG::GUI::Model::GeneratorLine* m_model;
 };

@@ -51,6 +51,7 @@ void GeneratorEdit::Update()
     m_ui->subgeneratorsView->clear();
     for (auto& i : m_model->subgenerators) {
         SubgenEdit* subg = new SubgenEdit();
+        subg->parent = m_model;
         subg->setModel(i);
         m_ui->subgeneratorsView->addTab(subg, i->name);
     }

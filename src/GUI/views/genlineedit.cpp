@@ -89,9 +89,11 @@ QLineEdit* GenLineEdit::getLineEditItem(QString text) const
     return retVal;
 }
 
-SubgenInstEdit* GenLineEdit::getSubgenInstItem() const
+SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent) const
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
+
+    retVal->setModel(parent);
 
     // -------- Size policy ---------
     
@@ -181,7 +183,9 @@ void GenLineEdit::Update()
             case Model::GeneratorItem::CustomText:
                 itemWgt = getLineEditItem(QString::fromStdString(i->getCustomText()));
                 break;
-            case Model::GeneratorItem::SubgenInst: itemWgt = getSubgenInstItem(); break;
+            case Model::GeneratorItem::SubgenInst:
+                itemWgt = getSubgenInstItem(parent);
+                break;
         }
         m_ui->content->addWidget(itemWgt);
         m_ui->content->addWidget(getAddButton());

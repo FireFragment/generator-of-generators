@@ -51,6 +51,7 @@ void SubgenEdit::Update()
 
     for (auto i : m_model->options) {
         GenLineEdit* le = new GenLineEdit();
+        le->parent = parent;
         le->setModel(i);
 
         connect(le, SIGNAL(deleted()), this, SLOT(removeOpt()));

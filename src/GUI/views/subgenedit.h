@@ -4,6 +4,7 @@
 #include "ui_subgenedit.h"
 #include "genlineedit.h"
 #include "../models/subgenerator.h"
+#include "../../ptrvector.h"
 
 #include <QWidget>
 #include <QLineEdit>
@@ -25,6 +26,11 @@ public:
 
     void setModel(GoG::GUI::Model::Subgenerator* model);
     GoG::GUI::Model::Subgenerator* model() { return m_model; };
+
+    /**
+     * @brief Generator this is part of
+     */
+    GoG::GUI::Model::Generator* parent;
 public slots:
     void addOption();
     /**
