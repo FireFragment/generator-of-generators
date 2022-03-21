@@ -89,11 +89,12 @@ QLineEdit* GenLineEdit::getLineEditItem(QString text) const
     return retVal;
 }
 
-SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent) const
+SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent, unsigned int selected) const
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
 
-    retVal->setModel(parent);
+    retVal->model = selected;
+    retVal->setParent(parent);
 
     // -------- Size policy ---------
     
@@ -115,6 +116,10 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent) const
     // Connect the action to `deleteItem`
     connect(mapper, &QSignalMapper::mappedWidget,
         this, &GenLineEdit::deleteItem);
+
+    // ----- Update model on change -----
+
+    connect(retVal, &SubgenInstEdit::changed, this, &GenLineEdit::subgenInstEdited);
     
     return retVal;
 }
@@ -141,13 +146,26 @@ void GenLineEdit::lineEditEdited(const QString& text)
     m_model->items[itemIndex]->SetCustomText(text.toStdString());
 }
 
+void GenLineEdit::subgenInstEdited(const unsigned int index)
+{
+    SubgenInstEdit* editedSubgenInstEdit= qobject_cast<SubgenInstEdit*>(sender());
+
+    /** Index of `SubgenInstEdit`, that was edited */
+    unsigned int editedSubgenInstEditIndex = m_ui->content->indexOf(editedSubgenInstEdit);
+    /** Index of item, that was edited*/
+    unsigned int itemIndex = (editedSubgenInstEditIndex - 1) / 2;
+
+    m_model->items[itemIndex]->SetSubgenInst(index);
+}
+
+
 void GenLineEdit::addItem(QWidget* clickedButton, Model::GeneratorItem::Type type)
 {
     Model::GeneratorItem* item = new Model::GeneratorItem;
     unsigned int index = m_ui->content->indexOf(clickedButton) / 2;
     switch (type) {
         case Model::GeneratorItem::CustomText: item->SetCustomText(""); break;
-        case Model::GeneratorItem::SubgenInst: item->SetSubgenInst(NULL); break;
+        case Model::GeneratorItem::SubgenInst: item->SetSubgenInst(0); break;
     }
     m_model->items.insert(index, item);
     m_model->Changed();
@@ -184,7 +202,7 @@ void GenLineEdit::Update()
                 itemWgt = getLineEditItem(QString::fromStdString(i->getCustomText()));
                 break;
             case Model::GeneratorItem::SubgenInst:
-                itemWgt = getSubgenInstItem(parent);
+                itemWgt = getSubgenInstItem(parent, i->getSbugenInst());
                 break;
         }
         m_ui->content->addWidget(itemWgt);

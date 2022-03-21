@@ -11,16 +11,18 @@ SubgenInstEdit::SubgenInstEdit(QWidget *parent, Qt::WindowFlags f)
     m_ui->setupUi(this);
 }
 
-void SubgenInstEdit::setModel(GoG::GUI::Model::Generator* model)
+void SubgenInstEdit::setParent(GoG::GUI::Model::Generator* generator)
 {
-    m_model = model;
-    connect(m_model, &Model::Generator::Update, this, &SubgenInstEdit::Update);
+    m_generator = generator;
+    connect(m_generator, &Model::Generator::Update, this, &SubgenInstEdit::Update);
     Update();
 }
 
 void SubgenInstEdit::Update()
 {
     m_ui->comboBox->clear();
-    for (auto i : m_model->subgenerators)
+    for (auto i : m_generator->subgenerators)
         m_ui->comboBox->addItem(i->name);
+    m_ui->comboBox->setCurrentIndex(model);
 }
+

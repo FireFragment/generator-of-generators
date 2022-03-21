@@ -10,7 +10,7 @@ std::string GoG::GUI::Model::GeneratorItem::getCustomText()
     return std::get<std::string>(value);
 }
 
-GoG::GUI::Model::Subgenerator* GoG::GUI::Model::GeneratorItem::getSbugenInst()
+unsigned int GoG::GUI::Model::GeneratorItem::getSbugenInst()
 {
-    return std::get<Subgenerator*>(value);
+    return std::get<unsigned int>(value);
 }

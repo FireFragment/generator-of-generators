@@ -61,6 +61,15 @@ public slots:
      *          Violating any of theese conditions may result in undefined behavior or crash.
      */
     void lineEditEdited(const QString& text);
+
+    /**
+     * @brief Fired when any subgenerator instance in `GenLineEdit` has been edited.
+     *
+     * @warning You can't call this directly, you have to connect it to signal.
+     *          The caller has to be `SubgenInstEdit`
+     *          Violating any of theese conditions may result in undefined behavior or crash.
+     */
+    void subgenInstEdited(const unsigned int index);
     
     /**
      * @brief Delete an item
@@ -88,7 +97,7 @@ private:
      */
     QPushButton* getAddButton() const ;
     QLineEdit* getLineEditItem(QString text = "") const;
-    SubgenInstEdit* getSubgenInstItem(GoG::GUI::Model::Generator* parent) const;
+    SubgenInstEdit* getSubgenInstItem(GoG::GUI::Model::Generator* parent, unsigned int selected) const;
 
     GoG::GUI::Model::GeneratorLine* m_model;
 };

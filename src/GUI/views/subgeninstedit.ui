@@ -109,5 +109,21 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>SubgenInstEdit</receiver>
+   <slot>changedSlt(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
