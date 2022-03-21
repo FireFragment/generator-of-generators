@@ -67,6 +67,7 @@ void GeneratorEdit::setModel(GoG::GUI::Model::Generator* model)
 {
     m_model = model;
     connect(m_model, &GUI::Model::Generator::Update, this, &GeneratorEdit::Update);
+    m_ui->result->setModel(model);
     Update();
 
 }

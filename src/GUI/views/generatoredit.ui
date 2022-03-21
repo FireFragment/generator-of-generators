@@ -88,6 +88,9 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="GeneratorResultView" name="result" native="true"/>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -95,6 +98,12 @@
    <class>SubgenEdit</class>
    <extends>QWidget</extends>
    <header>GUI/views/subgenedit.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GeneratorResultView</class>
+   <extends>QWidget</extends>
+   <header>GUI/views/generatorresultview.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
