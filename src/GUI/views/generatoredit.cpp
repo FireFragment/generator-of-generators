@@ -48,6 +48,12 @@ void GeneratorEdit::addSubgen()
 void GeneratorEdit::Update()
 {
     m_ui->nameLbl->setText(model()->name);
+
+    // Main generator
+    m_ui->mainGenerator->parent = m_model;
+    m_ui->mainGenerator->setModel(&model()->mainGenerator);
+
+    // Subgenerators
     m_ui->subgeneratorsView->clear();
     for (auto& i : m_model->subgenerators) {
         SubgenEdit* subg = new SubgenEdit();

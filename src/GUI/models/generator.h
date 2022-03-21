@@ -19,6 +19,11 @@ class Generator : public Model::Parent
 public:
     QString name;
     PtrVector<Model::Subgenerator> subgenerators;
+    /**
+     * @brief The main generator
+     *
+     */
+    Model::Subgenerator mainGenerator = QString("");
 
     Generator(QString name) : name(name) {};
 };
