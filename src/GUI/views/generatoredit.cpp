@@ -47,8 +47,10 @@ void GeneratorEdit::addSubgen()
 
 void GeneratorEdit::addOpt()
 {
-    m_model->subgenerators[m_ui->subgeneratorsView->currentIndex()]->options << new Model::GeneratorLine;
-    m_model->Update();
+    /** Subgenerator option is added to */
+    Model::Subgenerator* editedSubgenerator = m_model->subgenerators[m_ui->subgeneratorsView->currentIndex()];
+    editedSubgenerator->options << new Model::GeneratorLine;
+    editedSubgenerator->Update();
 }
 
 
