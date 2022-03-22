@@ -27,6 +27,11 @@ public:
 public slots:
     void addSubgen();
     /**
+     * @brief Add option to currently selected subgenerator
+     *
+     */
+    void addOpt();
+    /**
      * @brief Updates the UI according to `model`
      *
      * This is called automatically when #model fires `Update` signal

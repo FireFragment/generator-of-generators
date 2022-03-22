@@ -45,6 +45,13 @@ void GeneratorEdit::addSubgen()
     }
 }
 
+void GeneratorEdit::addOpt()
+{
+    m_model->subgenerators[m_ui->subgeneratorsView->currentIndex()]->options << new Model::GeneratorLine;
+    m_model->Update();
+}
+
+
 void GeneratorEdit::Update()
 {
     m_ui->nameLbl->setText(model()->name);

@@ -13,14 +13,118 @@
   <widget class="GeneratorEdit" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>834</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuGenerator">
+    <property name="title">
+     <string>Generator</string>
+    </property>
+    <widget class="QMenu" name="menuAdd">
+     <property name="title">
+      <string>Add</string>
+     </property>
+     <addaction name="action_add_subgenerator"/>
+     <addaction name="action_add_option"/>
+     <addaction name="action_add_item"/>
+    </widget>
+    <addaction name="menuAdd"/>
+   </widget>
+   <addaction name="menuGenerator"/>
+  </widget>
+  <action name="action_add_subgenerator">
+   <property name="icon">
+    <iconset theme="view-list-tree">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>Subgenerator</string>
+   </property>
+   <property name="toolTip">
+    <string>Add new subgenerator</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="action_add_option">
+   <property name="icon">
+    <iconset theme="split"/>
+   </property>
+   <property name="text">
+    <string>Option</string>
+   </property>
+   <property name="toolTip">
+    <string>Add new option to currently selected subgenerator</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+O</string>
+   </property>
+  </action>
+  <action name="action_add_item">
+   <property name="icon">
+    <iconset theme="item"/>
+   </property>
+   <property name="text">
+    <string>Item</string>
+   </property>
+   <property name="toolTip">
+    <string>Add new item to currently selected line</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+I</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
    <class>GeneratorEdit</class>
    <extends>QWidget</extends>
    <header>src/GUI/views/generatoredit.h</header>
+   <slots>
+    <slot>addOpt()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>action_add_subgenerator</sender>
+   <signal>triggered()</signal>
+   <receiver>centralWidget</receiver>
+   <slot>addSubgen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_add_option</sender>
+   <signal>triggered()</signal>
+   <receiver>centralWidget</receiver>
+   <slot>addOpt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
