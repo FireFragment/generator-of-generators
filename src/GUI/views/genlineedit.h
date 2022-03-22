@@ -69,7 +69,7 @@ public slots:
      *          The caller has to be `SubgenInstEdit`
      *          Violating any of theese conditions may result in undefined behavior or crash.
      */
-    void subgenInstEdited(const unsigned int index);
+    void subgenInstEdited(GoG::GUI::Model::Subgenerator* subgen);
     
     /**
      * @brief Delete an item
@@ -97,7 +97,7 @@ private:
      */
     QPushButton* getAddButton() const ;
     QLineEdit* getLineEditItem(QString text = "") const;
-    SubgenInstEdit* getSubgenInstItem(GoG::GUI::Model::Generator* parent, unsigned int selected) const;
+    SubgenInstEdit* getSubgenInstItem(GoG::GUI::Model::Generator* parent, GoG::GUI::Model::Subgenerator* selected) const;
 
     GoG::GUI::Model::GeneratorLine* m_model;
 };

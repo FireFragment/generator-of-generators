@@ -89,7 +89,7 @@ QLineEdit* GenLineEdit::getLineEditItem(QString text) const
     return retVal;
 }
 
-SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent, unsigned int selected) const
+SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent, Model::Subgenerator* selected) const
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
 
@@ -146,7 +146,7 @@ void GenLineEdit::lineEditEdited(const QString& text)
     m_model->items[itemIndex]->SetCustomText(text.toStdString());
 }
 
-void GenLineEdit::subgenInstEdited(const unsigned int index)
+void GenLineEdit::subgenInstEdited(Model::Subgenerator* subgen)
 {
     SubgenInstEdit* editedSubgenInstEdit= qobject_cast<SubgenInstEdit*>(sender());
 
@@ -155,7 +155,7 @@ void GenLineEdit::subgenInstEdited(const unsigned int index)
     /** Index of item, that was edited*/
     unsigned int itemIndex = (editedSubgenInstEditIndex - 1) / 2;
 
-    m_model->items[itemIndex]->SetSubgenInst(index);
+    m_model->items[itemIndex]->SetSubgenInst(subgen);
 }
 
 

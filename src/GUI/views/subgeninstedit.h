@@ -28,7 +28,7 @@ public:
      *
      * Call `Update()` after chaging this
      */
-    unsigned int model = 0;
+    GoG::GUI::Model::Subgenerator* model = NULL;
 
 public slots:
     void deletePressed() {
@@ -37,7 +37,8 @@ public slots:
     
     void Update();
     void changedSlt(int newVal) {
-        changed(newVal);
+        if (m_generator->subgenerators.size() > 0 && newVal != -1)
+            changed(m_generator->subgenerators[newVal]);
     }
 signals:
     /**
@@ -48,9 +49,9 @@ signals:
     /**
      * @brief Fired when user selected some subgenerator
      *
-     * @param newVal Index of the selected subgenerator
+     * @param newVal The selected subgenerator
      */
-    void changed(unsigned int newVal);
+    void changed(GoG::GUI::Model::Subgenerator* newVal);
 private:
     QScopedPointer<Ui::SubgenInstEdit> m_ui;
 

@@ -47,13 +47,13 @@ public:
      *
      * @return The pointer to the subgenerator this is instance of.
      */
-    unsigned int getSbugenInst();
+    Model::Subgenerator* getSbugenInst();
 
-    GeneratorItem(std::variant<std::string, unsigned int> value = "") : value(value) {};
+    GeneratorItem(std::variant<std::string, Model::Subgenerator*> value = "") : value(value) {};
     GeneratorItem(std::string value) : value(value) {};
     void SetCustomText(std::string _value) { value = _value; };
-    GeneratorItem(unsigned int value) : value(value) {};
-    void SetSubgenInst(unsigned int _value) { value = _value; };
+    GeneratorItem(Model::Subgenerator* value) : value(value) {};
+    void SetSubgenInst(Model::Subgenerator* _value) { value = _value; };
 private:
     /**
      * @brief The own value of the Item
@@ -63,7 +63,7 @@ private:
      * | `std::string`  | Custom text           |
      * | `Subgenerator` | Subgenerator instance |
      */
-    std::variant<std::string, unsigned int> value;
+    std::variant<std::string, Model::Subgenerator*> value;
 };
 
 }

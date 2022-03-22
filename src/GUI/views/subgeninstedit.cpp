@@ -2,6 +2,7 @@
 #include "ui_subgeninstedit.h"
 
 #include <QDebug>
+#include <algorithm>
 
 using namespace GoG::GUI;
 
@@ -23,6 +24,6 @@ void SubgenInstEdit::Update()
     m_ui->comboBox->clear();
     for (auto i : m_generator->subgenerators)
         m_ui->comboBox->addItem(i->name);
-    m_ui->comboBox->setCurrentIndex(model);
+    m_ui->comboBox->setCurrentIndex(std::find(m_generator->subgenerators.begin(), m_generator->subgenerators.end(), model) - m_generator->subgenerators.begin());
 }
 

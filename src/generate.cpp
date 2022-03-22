@@ -17,7 +17,7 @@ QString GoG::Generate(GUI::Model::Generator* generator, GUI::Model::Subgenerator
         if (item->type() == GUI::Model::GeneratorItem::Type::CustomText)
             retVal += QString::fromStdString(item->getCustomText());
         else
-            retVal += Generate(generator, generator->subgenerators[item->getSbugenInst()]);
+            retVal += Generate(generator, item->getSbugenInst());
     };
     return retVal;
 }
