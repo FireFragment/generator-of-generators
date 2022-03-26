@@ -17,6 +17,8 @@ public:
     GeneratorLine() {
         items << new Model::GeneratorItem;
     }
+
+    void FromJSON(QJsonObject json) override;
 };
 
 }

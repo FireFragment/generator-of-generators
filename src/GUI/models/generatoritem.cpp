@@ -16,3 +16,7 @@ Model::Subgenerator* GoG::GUI::Model::GeneratorItem::getSbugenInst()
 {
     return std::get<Model::Subgenerator*>(value);
 }
+
+void GoG::GUI::Model::GeneratorItem::FromJSON(QJsonObject json)
+{
+}

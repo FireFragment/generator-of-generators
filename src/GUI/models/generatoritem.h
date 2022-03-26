@@ -54,6 +54,8 @@ public:
     void SetCustomText(std::string _value) { value = _value; };
     GeneratorItem(Model::Subgenerator* value) : value(value) {};
     void SetSubgenInst(Model::Subgenerator* _value) { value = _value; };
+
+    void FromJSON(QJsonObject json) override;
 private:
     /**
      * @brief The own value of the Item

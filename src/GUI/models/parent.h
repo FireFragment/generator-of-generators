@@ -2,6 +2,7 @@
 #define GOG_GUI_MODELS_PARENT_H
 
 #include <QObject>
+#include <QJsonObject>
 
 namespace GoG::GUI::Model {
 
@@ -20,12 +21,20 @@ public:
      * Emits `Update` signal
      */
     void Changed() { emit Update(); };
+
+    Parent() {};
+    /**
+     * @brief Creates the object based on JSON data.
+     *        The old data in the object is overriden.
+     *
+     * @param json The JSON data to use
+     */
+    virtual void FromJSON(QJsonObject json) = 0;
 signals:
     /**
      * @brief Emitted when some property changed.
      */
     void Update();
-
 };
 
 }

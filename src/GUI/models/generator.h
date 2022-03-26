@@ -26,6 +26,8 @@ public:
     Model::Subgenerator mainGenerator = QString("");
 
     Generator(QString name) : name(name) {};
+
+    void FromJSON(QJsonObject json) override {};
 };
 
 }
