@@ -1,6 +1,7 @@
 #include "generatoredit.h"
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QJsonDocument>
 
 #include "../models/generator.h"
 
@@ -87,3 +88,16 @@ void GeneratorEdit::tabClosed(int index)
     m_model->Update();
     qDebug() << "Deleted subgenerator no. " << index;
 }
+
+void GeneratorEdit::debug()
+{
+    QMessageBox msgBox;
+    msgBox.setText("The JSON data");
+    msgBox.setDetailedText(QJsonDocument(m_model->ToJSON()).toJson());
+    msgBox.setWindowFlags(msgBox.windowFlags() | Qt::WindowMaximizeButtonHint);
+    msgBox.exec();
+}
+
+
+
+

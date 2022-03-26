@@ -35,6 +35,7 @@
      <addaction name="action_add_item"/>
     </widget>
     <addaction name="menuAdd"/>
+    <addaction name="actionShow_JSON_debug"/>
    </widget>
    <addaction name="menuGenerator"/>
   </widget>
@@ -55,7 +56,8 @@
   </action>
   <action name="action_add_option">
    <property name="icon">
-    <iconset theme="split"/>
+    <iconset theme="split">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Option</string>
@@ -69,7 +71,8 @@
   </action>
   <action name="action_add_item">
    <property name="icon">
-    <iconset theme="item"/>
+    <iconset theme="item">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Item</string>
@@ -81,6 +84,14 @@
     <string>Alt+I</string>
    </property>
   </action>
+  <action name="actionShow_JSON_debug">
+   <property name="icon">
+    <iconset theme="code-context"/>
+   </property>
+   <property name="text">
+    <string>Show JSON (debug)</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -89,6 +100,7 @@
    <header>src/GUI/views/generatoredit.h</header>
    <slots>
     <slot>addOpt()</slot>
+    <slot>debug()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -105,8 +117,8 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>416</x>
-     <y>269</y>
+     <x>317</x>
+     <y>281</y>
     </hint>
    </hints>
   </connection>
@@ -121,8 +133,24 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>416</x>
-     <y>269</y>
+     <x>317</x>
+     <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_JSON_debug</sender>
+   <signal>triggered()</signal>
+   <receiver>centralWidget</receiver>
+   <slot>debug()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>158</x>
+     <y>155</y>
     </hint>
    </hints>
   </connection>

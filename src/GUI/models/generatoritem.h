@@ -29,7 +29,7 @@ public:
         SubgenInst
     };
 
-    Type type();
+    Type type() const;
 
     /**
      * @brief If type() is #CustomText, returns the value of the text
@@ -38,7 +38,7 @@ public:
      *
      * @return The text
      */
-    std::string getCustomText();
+    std::string getCustomText() const;
 
     /**
      * @brief If type() is #SubgenInst, returns pointer to the subgenerator this is instance of
@@ -47,7 +47,7 @@ public:
      *
      * @return The pointer to the subgenerator this is instance of.
      */
-    Model::Subgenerator* getSbugenInst();
+    Model::Subgenerator* getSbugenInst() const;
 
     GeneratorItem(std::variant<std::string, Model::Subgenerator*> value = "") : value(value) {};
     GeneratorItem(std::string value) : value(value) {};

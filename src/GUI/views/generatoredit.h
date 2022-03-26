@@ -31,6 +31,7 @@ public slots:
      *
      */
     void addOpt();
+    void debug();
     /**
      * @brief Updates the UI according to `model`
      *

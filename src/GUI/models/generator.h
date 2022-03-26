@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QJsonArray>
 #include "parent.h"
 #include "subgenerator.h"
 #include "ptrvector.h"
@@ -28,7 +29,17 @@ public:
     Generator(QString name) : name(name) {};
 
     void FromJSON(QJsonObject json) override {};
-    QJsonObject ToJSON() const override {};
+    QJsonObject ToJSON() const override {
+        QJsonObject retVal;
+        retVal.insert("main", mainGenerator.ToJSON());
+
+        QJsonArray subgensJson;
+        for (const auto subg : subgenerators)
+            subgensJson << subg->ToJSON();
+        retVal.insert("subgenerators", subgensJson);
+
+        return retVal;
+    };
 };
 
 }
