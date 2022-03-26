@@ -19,6 +19,7 @@ public:
     }
 
     void FromJSON(QJsonObject json) override;
+    QJsonObject ToJSON() const override;
 };
 
 }

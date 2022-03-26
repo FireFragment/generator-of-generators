@@ -30,6 +30,8 @@ public:
      * @param json The JSON data to use
      */
     virtual void FromJSON(QJsonObject json) = 0;
+
+    virtual QJsonObject ToJSON() const = 0;
 signals:
     /**
      * @brief Emitted when some property changed.

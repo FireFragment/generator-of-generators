@@ -20,3 +20,8 @@ Model::Subgenerator* GoG::GUI::Model::GeneratorItem::getSbugenInst()
 void GoG::GUI::Model::GeneratorItem::FromJSON(QJsonObject json)
 {
 }
+
+QJsonObject GoG::GUI::Model::GeneratorItem::ToJSON() const
+{
+}
+

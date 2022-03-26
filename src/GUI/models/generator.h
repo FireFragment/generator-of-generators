@@ -28,6 +28,7 @@ public:
     Generator(QString name) : name(name) {};
 
     void FromJSON(QJsonObject json) override {};
+    QJsonObject ToJSON() const override {};
 };
 
 }

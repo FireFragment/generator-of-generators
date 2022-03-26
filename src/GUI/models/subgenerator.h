@@ -21,6 +21,7 @@ public:
         options << new Model::GeneratorLine;
     }
     void FromJSON(QJsonObject json) override;
+    QJsonObject ToJSON() const override;
 };
 
 }

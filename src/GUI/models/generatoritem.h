@@ -56,6 +56,7 @@ public:
     void SetSubgenInst(Model::Subgenerator* _value) { value = _value; };
 
     void FromJSON(QJsonObject json) override;
+    QJsonObject ToJSON() const override;
 private:
     /**
      * @brief The own value of the Item
