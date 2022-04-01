@@ -5,8 +5,8 @@
 #include "parent.h"
 
 namespace GoG::GUI::Model {
-
 class Subgenerator;
+class Generator;
 
 /**
  * @todo write docs
@@ -55,7 +55,7 @@ public:
     GeneratorItem(Model::Subgenerator* value) : value(value) {};
     void SetSubgenInst(Model::Subgenerator* _value) { value = _value; };
 
-    void FromJSON(QJsonObject json) override;
+    void FromJSON(QJsonObject json, Generator* generator);
     QJsonObject ToJSON() const override;
 private:
     /**

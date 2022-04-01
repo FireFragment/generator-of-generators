@@ -57,7 +57,6 @@ void GeneratorEdit::addOpt()
 
 void GeneratorEdit::Update()
 {
-    m_ui->nameLbl->setText(model()->name);
 
     // Main generator
     m_ui->mainGenerator->parent = m_model;

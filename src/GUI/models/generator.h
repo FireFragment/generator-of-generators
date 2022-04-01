@@ -18,7 +18,6 @@ class Generator : public Model::Parent
     Q_OBJECT
 
 public:
-    QString name;
     PtrVector<Model::Subgenerator> subgenerators;
     /**
      * @brief The main generator
@@ -26,9 +25,38 @@ public:
      */
     Model::Subgenerator mainGenerator = QString("");
 
-    Generator(QString name) : name(name) {};
+    void FromJSON(QJsonObject json) {
+        FromJSONEmpty(json);
+        FromJSONContent(json);
+    };
 
-    void FromJSON(QJsonObject json) override {};
+    /**
+     * @brief Create generator from JSON, but leave items empty
+     *
+     * Does not create main generator
+     *
+     */
+    void FromJSONEmpty(QJsonObject json) {
+        subgenerators = PtrVector<Model::Subgenerator>();
+        for (const auto subgenJSON : json.value("subgenerators").toArray()) {
+            Subgenerator* subgen = new Subgenerator("");
+            subgen->FromJSONEmpty(subgenJSON.toObject());
+            subgenerators << subgen;
+        }
+    }
+
+    void FromJSONContent(QJsonObject json) {
+        QJsonArray subgensJSON = json.value("subgenerators").toArray();
+        auto it = subgensJSON.begin();
+        for (auto subgen: subgenerators) {
+            subgen->FromJSONContent(it->toObject(), this);
+            it++;
+        }
+
+
+        mainGenerator.FromJSON(json.value("main").toObject(), this);
+    }
+
     QJsonObject ToJSON() const override {
         QJsonObject retVal;
         retVal.insert("main", mainGenerator.ToJSON());

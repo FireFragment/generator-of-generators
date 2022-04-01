@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>186</width>
-    <height>84</height>
+    <width>540</width>
+    <height>318</height>
    </rect>
   </property>
   <widget class="GeneratorEdit" name="centralWidget">
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>186</width>
+     <width>540</width>
      <height>29</height>
     </rect>
    </property>
@@ -38,12 +38,19 @@
     <addaction name="actionShow_JSON_debug"/>
     <addaction name="actionEnter_JSON_debug"/>
    </widget>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="action_file_open"/>
+   </widget>
+   <addaction name="menuFile"/>
    <addaction name="menuGenerator"/>
   </widget>
   <action name="action_add_subgenerator">
    <property name="icon">
     <iconset theme="view-list-tree">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</iconset>
    </property>
    <property name="text">
     <string>Subgenerator</string>
@@ -58,7 +65,7 @@
   <action name="action_add_option">
    <property name="icon">
     <iconset theme="split">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</iconset>
    </property>
    <property name="text">
     <string>Option</string>
@@ -73,7 +80,7 @@
   <action name="action_add_item">
    <property name="icon">
     <iconset theme="item">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</iconset>
    </property>
    <property name="text">
     <string>Item</string>
@@ -88,7 +95,7 @@
   <action name="actionShow_JSON_debug">
    <property name="icon">
     <iconset theme="code-context">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</iconset>
    </property>
    <property name="text">
     <string>Show JSON (debug)</string>
@@ -96,10 +103,22 @@
   </action>
   <action name="actionEnter_JSON_debug">
    <property name="icon">
-    <iconset theme="code-context"/>
+    <iconset theme="code-context">
+     <normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</normaloff>../../../../../../../../../../../../home/firefragment/.designer/backup</iconset>
    </property>
    <property name="text">
     <string>Enter JSON (debug)</string>
+   </property>
+  </action>
+  <action name="action_file_open">
+   <property name="icon">
+    <iconset theme="document-open"/>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
  </widget>
