@@ -1,0 +1,141 @@
+{
+    "main": {
+        "name": "",
+        "opts": [
+            {
+                "items": [
+                    {
+                        "type": 1,
+                        "value": "Accentutation"
+                    },
+                    {
+                        "type": 0,
+                        "value": "! "
+                    },
+                    {
+                        "type": 1,
+                        "value": "Rich idea"
+                    }
+                ]
+            }
+        ]
+    },
+    "subgenerators": [
+        {
+            "name": "Accentutation",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Wow"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Epic"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Impossible"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Idea",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "gameplay of "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Game"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "unboxing"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "challenge: "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Idea"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Game",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Minecraft"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Roblox"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Fortnite"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Rich idea",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Accentutation"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Idea"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
