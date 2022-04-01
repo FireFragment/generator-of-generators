@@ -17,6 +17,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow();
 
+public slots:
+    void file_open();
+
 private:
     QScopedPointer<Ui::MainWindow> m_ui;
 };
