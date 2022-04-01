@@ -93,6 +93,8 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent, Model::
 {
     SubgenInstEdit* retVal = new SubgenInstEdit;
 
+    retVal->doUpdateModel = false;
+
     retVal->model = selected;
     retVal->setParent(parent);
 
@@ -120,6 +122,8 @@ SubgenInstEdit* GenLineEdit::getSubgenInstItem(Model::Generator* parent, Model::
     // ----- Update model on change -----
 
     connect(retVal, &SubgenInstEdit::changed, this, &GenLineEdit::subgenInstEdited);
+
+    retVal->doUpdateModel = true;
     
     return retVal;
 }

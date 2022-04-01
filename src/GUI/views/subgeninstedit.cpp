@@ -21,9 +21,13 @@ void SubgenInstEdit::setParent(GoG::GUI::Model::Generator* generator)
 
 void SubgenInstEdit::Update()
 {
+    doUpdateModel = false;
+
     m_ui->comboBox->clear();
     for (auto i : m_generator->subgenerators)
         m_ui->comboBox->addItem(i->name);
     m_ui->comboBox->setCurrentIndex(std::find(m_generator->subgenerators.begin(), m_generator->subgenerators.end(), model) - m_generator->subgenerators.begin());
+
+    doUpdateModel = true;
 }
 

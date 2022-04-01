@@ -30,6 +30,10 @@ public:
      */
     GoG::GUI::Model::Subgenerator* model = NULL;
 
+    /**
+     * @brief If false, model isn't updated on change of the selected item
+     */
+    bool doUpdateModel = true;
 public slots:
     void deletePressed() {
         deleted();
@@ -37,7 +41,7 @@ public slots:
     
     void Update();
     void changedSlt(int newVal) {
-        if (m_generator->subgenerators.size() > 0 && newVal != -1)
+        if (newVal != -1 && m_generator->subgenerators.size() > 0 && doUpdateModel)
             changed(m_generator->subgenerators[newVal]);
     }
 signals:

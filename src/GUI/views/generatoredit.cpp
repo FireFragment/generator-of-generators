@@ -99,5 +99,16 @@ void GeneratorEdit::debug()
 }
 
 
+void GeneratorEdit::dbgEnter()
+{
+    m_model->FromJSON(
+        QJsonDocument::fromJson(
+            QInputDialog::getMultiLineText(
+                this,
+                tr("Debug"),
+                tr("Your JSON:")).toUtf8()).object());
+    m_model->Changed();
+}
+
 
 

@@ -20,7 +20,9 @@ public:
     Subgenerator(QString name) : name(name) {
         options << new Model::GeneratorLine;
     }
-    void FromJSON(QJsonObject json) override;
+    void FromJSON(QJsonObject json, Generator* parent);
+    void FromJSONEmpty(QJsonObject json);
+    void FromJSONContent(QJsonObject json, Generator* parent);
     QJsonObject ToJSON() const override;
 };
 

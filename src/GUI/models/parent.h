@@ -23,13 +23,6 @@ public:
     void Changed() { emit Update(); };
 
     Parent() {};
-    /**
-     * @brief Creates the object based on JSON data.
-     *        The old data in the object is overriden.
-     *
-     * @param json The JSON data to use
-     */
-    virtual void FromJSON(QJsonObject json) = 0;
 
     virtual QJsonObject ToJSON() const = 0;
 signals:

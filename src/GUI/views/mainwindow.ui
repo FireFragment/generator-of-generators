@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>16</width>
-    <height>16</height>
+    <width>186</width>
+    <height>84</height>
    </rect>
   </property>
   <widget class="GeneratorEdit" name="centralWidget">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>834</width>
-     <height>31</height>
+     <width>186</width>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuGenerator">
@@ -36,6 +36,7 @@
     </widget>
     <addaction name="menuAdd"/>
     <addaction name="actionShow_JSON_debug"/>
+    <addaction name="actionEnter_JSON_debug"/>
    </widget>
    <addaction name="menuGenerator"/>
   </widget>
@@ -86,10 +87,19 @@
   </action>
   <action name="actionShow_JSON_debug">
    <property name="icon">
-    <iconset theme="code-context"/>
+    <iconset theme="code-context">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Show JSON (debug)</string>
+   </property>
+  </action>
+  <action name="actionEnter_JSON_debug">
+   <property name="icon">
+    <iconset theme="code-context"/>
+   </property>
+   <property name="text">
+    <string>Enter JSON (debug)</string>
    </property>
   </action>
  </widget>
@@ -101,6 +111,7 @@
    <slots>
     <slot>addOpt()</slot>
     <slot>debug()</slot>
+    <slot>dbgEnter()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -151,6 +162,22 @@
     <hint type="destinationlabel">
      <x>158</x>
      <y>155</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEnter_JSON_debug</sender>
+   <signal>triggered()</signal>
+   <receiver>centralWidget</receiver>
+   <slot>dbgEnter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>56</y>
     </hint>
    </hints>
   </connection>

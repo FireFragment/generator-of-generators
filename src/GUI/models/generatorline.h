@@ -18,7 +18,7 @@ public:
         items << new Model::GeneratorItem;
     }
 
-    void FromJSON(QJsonObject json) override;
+    void FromJSON(QJsonObject json, Generator* parent);
     QJsonObject ToJSON() const override;
 };
 

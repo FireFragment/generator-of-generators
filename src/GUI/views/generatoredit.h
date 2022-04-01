@@ -32,6 +32,7 @@ public slots:
      */
     void addOpt();
     void debug();
+    void dbgEnter();
     /**
      * @brief Updates the UI according to `model`
      *
