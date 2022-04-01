@@ -21,3 +21,8 @@ void GoG::GUI::MainWindow::file_open()
             file.readAll()).object());
     m_ui->centralWidget->model()->Changed();
 }
+
+void GoG::GUI::MainWindow::file_save()
+{
+    QFileDialog::saveFileContent((QByteArray)QJsonDocument(m_ui->centralWidget->model()->ToJSON()).toJson(), "New generator.gog");
+}

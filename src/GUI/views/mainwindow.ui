@@ -43,6 +43,7 @@
      <string>File</string>
     </property>
     <addaction name="action_file_open"/>
+    <addaction name="action_file_save"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuGenerator"/>
@@ -119,6 +120,17 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_file_save">
+   <property name="icon">
+    <iconset theme="document-save"/>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>
@@ -216,8 +228,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_file_save</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file_save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>269</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>158</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>file_open()</slot>
+  <slot>file_save()</slot>
  </slots>
 </ui>
