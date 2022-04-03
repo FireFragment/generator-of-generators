@@ -19,7 +19,6 @@ jobs:
       run: qmake .
     - name: Build 
       run: make
-    - run: tree /F
     - name: Upload Windows artifact
       uses: actions/upload-artifact@v3
       with:
