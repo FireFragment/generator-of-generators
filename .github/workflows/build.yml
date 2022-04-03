@@ -18,7 +18,9 @@ jobs:
       run: qmake .
     - name: Build 
       run: make
-    - uses: actions/upload-artifact@v3
+    - run: tree
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
-        path: GeneratorOfGenerators
+        name: Built executable (${{ matrix.os }})
+        path: ./GeneratorOfGenerators
