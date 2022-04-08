@@ -20,7 +20,7 @@ public:
 public slots:
     void file_open();
     void file_save();
-
+    void file_share();
 private:
     QScopedPointer<Ui::MainWindow> m_ui;
 };

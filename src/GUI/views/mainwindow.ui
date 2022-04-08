@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
+    <width>486</width>
     <height>318</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>540</width>
+     <width>486</width>
      <height>29</height>
     </rect>
    </property>
@@ -44,6 +44,7 @@
     </property>
     <addaction name="action_file_open"/>
     <addaction name="action_file_save"/>
+    <addaction name="action_file_share"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuGenerator"/>
@@ -113,7 +114,8 @@
   </action>
   <action name="action_file_open">
    <property name="icon">
-    <iconset theme="document-open"/>
+    <iconset theme="document-open">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -124,13 +126,26 @@
   </action>
   <action name="action_file_save">
    <property name="icon">
-    <iconset theme="document-save"/>
+    <iconset theme="document-save">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Save</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_file_share">
+   <property name="icon">
+    <iconset theme="emblem-shared-symbolic">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>Create link</string>
+   </property>
+   <property name="toolTip">
+    <string>Create link to the generator, that enables people to use it even if they haven't installed this app.</string>
    </property>
   </action>
  </widget>
@@ -235,8 +250,24 @@
    <slot>file_save()</slot>
    <hints>
     <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
      <x>269</x>
      <y>158</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_file_share</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>file_share()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>269</x>
@@ -248,5 +279,6 @@
  <slots>
   <slot>file_open()</slot>
   <slot>file_save()</slot>
+  <slot>file_share()</slot>
  </slots>
 </ui>

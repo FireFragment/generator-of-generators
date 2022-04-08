@@ -6,6 +6,8 @@
 #include <QJsonArray>
 #include "parent.h"
 #include "subgenerator.h"
+#include <QString>
+#include <QJsonDocument>
 #include "ptrvector.h"
 
 namespace GoG::GUI::Model {
@@ -24,6 +26,10 @@ public:
      *
      */
     Model::Subgenerator mainGenerator = QString("");
+
+    QString GetShareLink() {
+        return "file:///tmp/personal/web/index.html?generator=" + QUrl::toPercentEncoding(QJsonDocument(ToJSON()).toJson(QJsonDocument::Compact));
+    }
 
     void FromJSON(QJsonObject json) {
         FromJSONEmpty(json);
