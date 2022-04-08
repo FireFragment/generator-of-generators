@@ -4,6 +4,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
     steps:
@@ -18,3 +19,13 @@ jobs:
       run: qmake .
     - name: Build 
       run: make
+    - name: Upload Windows artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Built executable (${{ matrix.os }})
+        path: ./build/GeneratorOfGenerators.exe
+    - name: Upload Linux artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Built executable (${{ matrix.os }})
+        path: ./build/GeneratorOfGenerators
