@@ -22,10 +22,13 @@ void SubgenEdit::addOption()
 void SubgenEdit::removeOpt()
 {
     QWidget* wgt = dynamic_cast<QWidget*>(sender());
-    
-    wgt->hide();
-    m_ui->options->removeWidget(wgt);
-    delete wgt;
+
+    unsigned int index = m_ui->options->indexOf(wgt);
+    delete m_model->options[index];
+
+    m_model->options.removeAt(m_ui->options->indexOf(wgt));
+
+    m_model->Update();
 }
 
 void SubgenEdit::setName(QString _name)

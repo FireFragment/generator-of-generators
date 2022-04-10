@@ -79,6 +79,14 @@ public slots:
     void deleteItem(QWidget* item);
 
     void Update();
+
+    /**
+     * @brief The delete button was pressed
+     *
+     */
+    void deletePressed() {
+        emit deleted();
+    }
 signals:
     /**
      * @brief Fired when the line should be deleted
