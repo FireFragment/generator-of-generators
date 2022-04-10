@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>814</width>
+    <width>537</width>
     <height>545</height>
    </rect>
   </property>
@@ -17,6 +17,28 @@
    </sizepolicy>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0" colspan="2">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>521</width>
+        <height>426</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="options"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
    <item row="1" column="0" colspan="2">
     <widget class="QWidget" name="subgenHeader" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
@@ -72,16 +94,10 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <layout class="QVBoxLayout" name="options"/>
-   </item>
-   <item row="4" column="1">
-    <widget class="QPushButton" name="addOptButt">
-     <property name="toolTip">
-      <string>Add new option, that the generator could possibly generate</string>
-     </property>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="subgenNoHeader">
      <property name="text">
-      <string>Add new option</string>
+      <string>The generator can output one of following:</string>
      </property>
     </widget>
    </item>
@@ -98,23 +114,13 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="0" colspan="2">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="addOptButt">
+     <property name="toolTip">
+      <string>Add new option, that the generator could possibly generate</string>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="subgenNoHeader">
      <property name="text">
-      <string>The generator can output one of following:</string>
+      <string>Add new option</string>
      </property>
     </widget>
    </item>

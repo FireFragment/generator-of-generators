@@ -34,7 +34,8 @@ p, li { white-space: pre-wrap; }
       <string>Regenerate</string>
      </property>
      <property name="icon">
-      <iconset theme="view-refresh"/>
+      <iconset theme="view-refresh">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
    </item>
