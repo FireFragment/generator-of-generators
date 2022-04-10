@@ -1,6 +1,7 @@
 TEMPLATE = app
 
 CONFIG += c++17
+CONFIG += console
 
 QT += widgets
 
