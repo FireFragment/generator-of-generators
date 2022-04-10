@@ -10,6 +10,9 @@
     <height>318</height>
    </rect>
   </property>
+  <property name="windowTitle">
+   <string>Generator of Generators</string>
+  </property>
   <widget class="GeneratorEdit" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
@@ -37,6 +40,7 @@
     <addaction name="menuAdd"/>
     <addaction name="actionShow_JSON_debug"/>
     <addaction name="actionEnter_JSON_debug"/>
+    <addaction name="action_regenerate"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -48,6 +52,31 @@
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuGenerator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_file_open"/>
+   <addaction name="action_file_save"/>
+   <addaction name="action_file_share"/>
+   <addaction name="separator"/>
+   <addaction name="action_regenerate"/>
   </widget>
   <action name="action_add_subgenerator">
    <property name="icon">
@@ -148,6 +177,20 @@
     <string>Create link to the generator, that enables people to use it even if they haven't installed this app.</string>
    </property>
   </action>
+  <action name="action_regenerate">
+   <property name="icon">
+    <iconset theme="view-refresh"/>
+   </property>
+   <property name="text">
+    <string>Regenerate</string>
+   </property>
+   <property name="toolTip">
+    <string>Generate text with generator and diaplay it</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -158,6 +201,7 @@
     <slot>addOpt()</slot>
     <slot>debug()</slot>
     <slot>dbgEnter()</slot>
+    <slot>regenerate()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -275,10 +319,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>action_regenerate</sender>
+   <signal>triggered()</signal>
+   <receiver>centralWidget</receiver>
+   <slot>regenerate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>242</x>
+     <y>173</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>file_open()</slot>
   <slot>file_save()</slot>
   <slot>file_share()</slot>
+  <slot>regenerate()</slot>
  </slots>
 </ui>

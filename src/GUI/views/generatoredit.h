@@ -41,6 +41,10 @@ public slots:
      */
     void Update();
     void tabClosed(int index);
+
+    inline void regenerate() {
+        m_ui->result->Regenerate();
+    };
 private:
     QScopedPointer<Ui::GeneratorEdit> m_ui;
     GoG::GUI::Model::Generator* m_model;
