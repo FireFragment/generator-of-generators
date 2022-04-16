@@ -11,8 +11,17 @@ using namespace GoG::GUI;
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
+    
     app.setStyle(QStyleFactory::create("Breeze"));
+    std::cout << "QStyleFactory::keys\n";
     std::cout << QStyleFactory::keys().join(" ").toStdString();
+    
+    std::cout << "Original QIcon::themeName: " << QIcon::themeName();
+    std::cout << "QIcon::themeSearchPaths\n";
+    std::cout << QIcon::themeSearchPaths().join(" ").toStdString();
+    QIcon::setThemeName( "breeze" );
+    std::cout << "QIcon::themeName after changing to breeze: " << QIcon::themeName();
+    
     MainWindow w;
 
     w.show();
