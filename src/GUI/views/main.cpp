@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
     
-    app.setStyle(QStyleFactory::create("Breeze"));
+    QApplication::setStyle(QStringLiteral("breeze"));
     std::cout << "QStyleFactory::keys\n";
     std::cout << QStyleFactory::keys().join(" ").toStdString();
     
