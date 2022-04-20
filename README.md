@@ -19,7 +19,7 @@ This app lets you create your own generators like this too.
 Building
 --------
 
-Only building on Linux is officially supported yet (I managed to build it on Windows, but don't ask me how):
+Only building on Linux is officially supported yet (I managed to build it on Windows too, but don't ask me how):
 
  1. Clone the repository
  2. Create directory `build`
