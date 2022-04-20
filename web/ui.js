@@ -1,3 +1,5 @@
+// Homepage of the project
+const homepage = "https://github.com/FireFragment/generator-of-generators"
 
 function Regenerate() {
     try {
@@ -7,6 +9,9 @@ function Regenerate() {
     }
 }
 
+// Redirect to homepage when there's no generator
+if (!generator)
+    window.location.href = homepage;
 Regenerate();
 
 document.addEventListener('keydown', function(e) {
