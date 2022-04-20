@@ -1,0 +1,372 @@
+{
+    "main": {
+        "name": "",
+        "opts": [
+            {
+                "items": [
+                    {
+                        "type": 0,
+                        "value": ""
+                    },
+                    {
+                        "type": 1,
+                        "value": "Událost"
+                    }
+                ]
+            },
+            {
+                "items": [
+                    {
+                        "type": 0,
+                        "value": ""
+                    },
+                    {
+                        "type": 1,
+                        "value": "Událost"
+                    }
+                ]
+            }
+        ]
+    },
+    "subgenerators": [
+        {
+            "name": "Člověk",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Marek"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Martin"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Zbyšek"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Nějaký člověk",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Složitá vlastnost"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Člověk"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Vlastnost",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Zlý"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Hodný"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Chrabrý"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Čestný"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Podlý"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Hezký"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Složitá vlastnost",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Složitá vlastnost"
+                        },
+                        {
+                            "type": 0,
+                            "value": " a "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Vlastnost"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Vlastnost"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "nejvíc "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Vlastnost"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "hodně "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Vlastnost"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Událost",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Událost"
+                        },
+                        {
+                            "type": 0,
+                            "value": ". "
+                        },
+                        {
+                            "type": 1,
+                            "value": "A tak"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Událost"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Nějaký člověk"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Akce"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Akce",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "zabil "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Nějaký člověk"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "se zamiloval do "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Nějaký člověk"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "řekl: \""
+                        },
+                        {
+                            "type": 1,
+                            "value": "Událost"
+                        },
+                        {
+                            "type": 0,
+                            "value": "\""
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "nenávidí "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Nějaký člověk"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "nechápe, proč "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Událost"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "se zamyslel: \"Proč jen "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Událost"
+                        },
+                        {
+                            "type": 0,
+                            "value": "?\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "A tak",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "A tak"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Proto"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "To mělo za následek to, že"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "No, a pak se není co divit, že"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Proč? Protože"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "A to umožnilo, aby"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
