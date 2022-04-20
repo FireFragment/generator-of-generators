@@ -1,0 +1,430 @@
+{
+    "main": {
+        "name": "",
+        "opts": [
+            {
+                "items": [
+                    {
+                        "type": 1,
+                        "value": "Something happened"
+                    }
+                ]
+            }
+        ]
+    },
+    "subgenerators": [
+        {
+            "name": "Name",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Jack"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Martin"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "John"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Lisa"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Marge"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Something happened",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "Because "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Something happened"
+                        },
+                        {
+                            "type": 0,
+                            "value": ", "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Something happened"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Name"
+                        },
+                        {
+                            "type": 0,
+                            "value": " said: \""
+                        },
+                        {
+                            "type": 1,
+                            "value": "Statement"
+                        },
+                        {
+                            "type": 0,
+                            "value": "\", which is "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Truthiness (advanced)"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Name"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Relationship (advanced)"
+                        },
+                        {
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Name"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Statement",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Something happened"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "I'm "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Reactivon to event (advanced)"
+                        },
+                        {
+                            "type": 0,
+                            "value": ", that "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Something happened"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Reaction to event",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "glad"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "terrified"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "surprised"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "enthused"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "sure"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "worried"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Reactivon to event (advanced)",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Reaction to event"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "not "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Reaction to event"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "so "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Reaction to event"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Relationship",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "like"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "hate"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "love"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "admire"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Relationship (advanced)",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "doesn't "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Relationship"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "so much "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Relationship"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Relationship"
+                        },
+                        {
+                            "type": 0,
+                            "value": "s"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Truthiness",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "false"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "nonsense"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "make sense"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "good"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Truthiness (advanced)",
+            "opts": [
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "not "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Truthiness"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "really "
+                        },
+                        {
+                            "type": 1,
+                            "value": "Truthiness"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 0,
+                            "value": "obviously"
+                        },
+                        {
+                            "type": 1,
+                            "value": "Truthiness"
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "type": 1,
+                            "value": "Truthiness"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
