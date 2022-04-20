@@ -12,7 +12,8 @@ function Regenerate() {
 // Redirect to homepage when there's no generator
 if (!generator)
     window.location.href = homepage;
-Regenerate();
+else
+    Regenerate();
 
 document.addEventListener('keydown', function(e) {
     if (e.which == 32)
