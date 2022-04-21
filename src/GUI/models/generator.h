@@ -28,7 +28,7 @@ public:
     Model::Subgenerator mainGenerator = QString("");
 
     QString GetShareLink() {
-        return "file:///tmp/personal/web/index.html?generator=" + QUrl::toPercentEncoding(QJsonDocument(ToJSON()).toJson(QJsonDocument::Compact));
+        return "https://generator-of-generators.vercel.app?generator=" + QUrl::toPercentEncoding(QJsonDocument(ToJSON()).toJson(QJsonDocument::Compact));
     }
 
     void FromJSON(QJsonObject json) {
