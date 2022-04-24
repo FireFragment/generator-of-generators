@@ -48,8 +48,12 @@ void GeneratorEdit::addSubgen()
 
 void GeneratorEdit::addOpt()
 {
-    /** Subgenerator option is added to */
-    Model::Subgenerator* editedSubgenerator = m_model->subgenerators[m_ui->subgeneratorsView->currentIndex()];
+    /** Subgenerator option is added to
+     If there are no subgenerator, pick the main generator*/
+    Model::Subgenerator* editedSubgenerator =
+    m_model->subgenerators.size() > 0 ?
+        m_model->subgenerators[m_ui->subgeneratorsView->currentIndex()]
+        : &m_model->mainGenerator;
     editedSubgenerator->options << new Model::GeneratorLine;
     editedSubgenerator->Update();
 }
