@@ -19,19 +19,20 @@ This app lets you create your own generators like this too.
 Building
 --------
 
+QT and QMake is required.  
 Only building on Linux is officially supported yet (I managed to build it on Windows too, but don't ask me how):
 
  1. Clone the repository
  2. Create directory `build`
- 3. Run `cmake ..` and `make` in it
+ 3. Run `qmake ..` and `make` in it
+ 4. Built binary should be in `build/GeneratorOfGenerators`
 
 In summary, run:
 
 ```bash
 git clone https://github.com/FireFragment/generator-of-generators
 cd generator-of-generators
-mkdir build
-cd build
-cmake ..
+qmake
 make
+./build/GeneratorOfGenerators
 ```
